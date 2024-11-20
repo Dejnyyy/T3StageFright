@@ -7,7 +7,7 @@ import "~/styles/globals.css";
 
 // Define initial PayPal configuration options
 const initialPayPalOptions = {
-  clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "", // Correctly specify clientId
+  "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "", // Correctly specify clientId
   currency: "USD", // Specify the currency
 };
 
