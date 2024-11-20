@@ -37,13 +37,13 @@ const About = () => {
             <h2 className="text-4xl font-bold mb-8">Our Story</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Stage Fright started with four friends and a dream: to create music
-              that moves people. From local gigs to packed arenas, we've stayed
+              that moves people. From our garages to packed arenas, we've stayed
               true to our passion for delivering electrifying rock performances.
               Every song we write and every show we perform is a celebration of
               energy, emotion, and connection with our fans.
             </p>
             <p className="text-lg text-gray-300 mt-6 leading-relaxed">
-              With powerful riffs, unforgettable lyrics, and a stage presence
+              With catchy vibe, unforgettable lyrics, and a stage presence
               that ignites crowds, Stage Fright is here to remind you why rock
               will always be alive.
             </p>
@@ -55,7 +55,7 @@ const About = () => {
           
           <Link
             href="/tour"
-            className="inline-block mt-8 px-4 py-2 bg-white text-black text-lg font-bold rounded-full shadow-md hover:bg-gray-300 transition"
+            className="inline-block mt-8 px-4 py-2 bg-white text-black text-lg rounded-full shadow-md hover:bg-gray-300 transition"
           >
             Explore
           </Link>
