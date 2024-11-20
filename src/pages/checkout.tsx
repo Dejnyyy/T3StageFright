@@ -49,10 +49,10 @@ const Checkout = () => {
       {/* PayPal Buttons Section */}
       <div className="w-full max-w-lg bg-gray-900 p-6 rounded-lg shadow-md">
       <PayPalButtons
-  style={{  shape: "rect",
-  layout: "vertical",
-  color: "white",
-  label: "paypal", }}
+        style={{   
+        shape: "pill",
+        layout: "vertical",
+        color: "white", }}
   createOrder={(data, actions) => {
     return actions.order.create({
         purchase_units: [
