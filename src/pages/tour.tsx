@@ -74,6 +74,7 @@ const Tour = () => {
           <h1 className="text-center text-7xl mt-8 bg-clip-text text-transparent bg-center bg-cover">
             Tour
           </h1>
+          <p className="text-center italic text-gray-400 hover:text-white">"Catch the vibe, live the energy!"</p>
         </section>
 
         {/* Tour Table */}
