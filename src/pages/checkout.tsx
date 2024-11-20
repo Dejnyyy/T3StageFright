@@ -48,28 +48,31 @@ const Checkout = () => {
 
       {/* PayPal Buttons Section */}
       <div className="w-full max-w-lg bg-gray-900 p-6 rounded-lg shadow-md">
-        <PayPalButtons
-          style={{ layout: "vertical" }}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: price as string, // Convert price to a string
-                  },
-                  description: product as string, // Optional: Include product description
+      <PayPalButtons
+  style={{ layout: "vertical" }}
+  createOrder={(data, actions) => {
+    return actions.order.create({
+        purchase_units: [
+            {
+                amount: {
+                    currency_code: "USD", // Specify the currency
+                    value: price as string, // Ensure price is passed as a string
                 },
-              ],
-            });
-          }}
-          onApprove={async (data, actions) => {
-            if (actions.order) {
-              const order = await actions.order.capture(); // Capture the payment
-              handleApprove(order.id); // Handle approved order
-            }
-          }}
-          onError={handleError}
-        />
+                description: product as string, // Add product description
+            },
+        ],
+        intent: "CAPTURE"
+    });
+  }}
+  onApprove={async (data, actions) => {
+    if (actions.order) {
+      const order = await actions.order.capture(); // Capture the payment
+      handleApprove(order.id as string); // Handle approved order with type assertion
+    }
+  }}
+  onError={handleError}
+/>
+
       </div>
     </div>
   );
