@@ -27,7 +27,7 @@ const Checkout = () => {
     
       <h1 className="text-center mb-4 text-7xl mt-10 bg-clip-text text-transparent bg-center bg-cover">
             Check out
-          </h1>
+        </h1>
           
       {/* Product Details Section */}
       <div className="flex flex-col lg:flex-row items-center bg-gray-900 p-6 rounded-lg shadow-md w-full max-w-2xl mb-8">

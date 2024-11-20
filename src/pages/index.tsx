@@ -86,7 +86,9 @@ const Home = () => {
         {/* Rotating Logo */}
         <section className="w-full mx-auto pt-8 text-center">
           <div className="perspective">
-            <img
+            <Image
+            width={300}
+            height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"
@@ -96,15 +98,15 @@ const Home = () => {
 
         {/* Navigation Links */}
         <nav className="text-center text-xl mt-4">
-          <a href="/about" className="mx-4">
+          <Link href="/about" className="mx-4">
             About
-          </a>
-          <a href="/tour" className="mx-4">
+          </Link>
+          <Link href="/tour" className="mx-4">
             Tour
-          </a>
-          <a href="/merch" className="mx-4">
+          </Link>
+          <Link href="/merch" className="mx-4">
             Merch
-          </a>
+          </Link>
         </nav>
 
         {/* Merch Section */}
