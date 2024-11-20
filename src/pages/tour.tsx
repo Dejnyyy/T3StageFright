@@ -9,25 +9,25 @@ const Tour = () => {
       date: "November 16-17",
       city: "Las Vegas, NV",
       venue: "ComplexCon",  
-      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20LasVegas&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 14",
       city: "Miami Gardens, FL",
       venue: "Rolling Loud",
-      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Miami&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 20",
       city: "Gallipolis, OH",
       venue: "Gallipolis City Park",
-      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Gallipolis&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 28",
       city: "Hunington, WV",
       venue: "AT&T Stadium",
-      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Hunington&price=50&image=/bg.png", // Updated link to Checkout
     },
   ];
 
