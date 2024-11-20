@@ -84,7 +84,7 @@ const Home = () => {
         </Link>
 
         {/* Rotating Logo */}
-        <section className="w-full mx-auto mt-4 text-center">
+        <section className="w-full mx-auto pt-8 text-center">
           <div className="perspective">
             <img
               src="/StageFrightNobg.png"
