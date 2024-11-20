@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
+import Marquee from "react-fast-marquee";
+
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,17 +47,15 @@ const Home = () => {
         <title>Stage Fright</title>
       </Head>
       <div className="bg-black text-white">
-        
-      <Link href="/tour">
-  <div className="fixed top-0 w-full z-40 bg-black">
-    <div className="overflow-hidden whitespace-nowrap">
-      <p className="animate-scroll text-white font-bold">
-        !!! New Tour - Check out the schedule !!! &nbsp;&nbsp;&nbsp;
-        !!! New Tour - Check out the schedule !!!
-      </p>
-    </div>
-  </div>
-</Link>
+        {/* Marquee */}
+        <Link href="/tour">
+          <div className="fixed top-0 w-full z-40 bg-black">
+            <Marquee gradient={false} speed={100} className="text-white font-bold">
+              !!! New Tour - Check out the schedule !!!
+            </Marquee>
+          </div>
+        </Link>
+
         {/* Rotating Logo */}
         <section className="w-full mx-auto mt-4 text-center">
   <div className="perspective">
@@ -186,7 +186,7 @@ const Home = () => {
 
         {/* About Section */}
         <section className="mt-12 text-center">
-          <h1 className="text-6xl">About</h1>
+          <h1 className="text-6xl merch-text">About</h1>
           <h2 className="text-2xl mt-4">Stage Fright</h2>
           <p className="mt-2">Your favorite local rock band</p>
         </section>
