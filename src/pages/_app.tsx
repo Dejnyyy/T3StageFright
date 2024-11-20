@@ -11,7 +11,6 @@ const initialPayPalOptions = {
   "client-id": process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "", // Replace with your PayPal Client ID
   currency: "USD",
 };
-console.log("PayPal Client ID:", process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID);
 
 
 const MyApp: AppType = ({ Component, pageProps }) => {

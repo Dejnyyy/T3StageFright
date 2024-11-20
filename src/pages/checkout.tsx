@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import Image from "next/image";
+import Link from  "next/link";
 
 const Checkout = () => {
   const router = useRouter();
@@ -19,6 +20,12 @@ const Checkout = () => {
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center p-8">
+    
+      <Link href="/merch">
+      <h1 className="absolute top-4 left-4">Back</h1>
+      </Link>
+    
+      
       <h1 className="text-4xl font-bold mb-6">Checkout</h1>
 
       {/* Product Details Section */}

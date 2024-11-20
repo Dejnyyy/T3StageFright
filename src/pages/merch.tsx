@@ -44,7 +44,7 @@ const Merch = () => {
 
         {/* Navigation and Header */}
         <section>
-          <div className="top-4 absolute left-4">
+          <div className="top-8 absolute left-4">
             <Link href="/" target="_blank">
               Home
             </Link>
@@ -82,7 +82,7 @@ const Merch = () => {
                       alt={product.name}
                       width={300}
                       height={300}
-                      className="object-contain hover:scale-110 transition-transform"
+                      className="object-contain mx-auto hover:scale-110 transition-transform"
                     />
                   </Link>
                   {/* Spacer for alignment */}
