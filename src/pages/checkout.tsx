@@ -22,12 +22,12 @@ const Checkout = () => {
     <div className="bg-black text-white min-h-screen flex flex-col items-center p-8">
     
       <Link href="/merch">
-      <h1 className="absolute top-4 left-4">Back</h1>
+      <h2 className="absolute top-4 left-4">Back</h2>
       </Link>
     
-      
-      <h1 className="text-4xl font-bold mb-6">Checkout</h1>
-
+      <h1 className="text-center mb-4 text-7xl mt-10 bg-clip-text text-transparent bg-center bg-cover">
+            Check out
+          </h1>
       {/* Product Details Section */}
       <div className="flex flex-col lg:flex-row items-center bg-gray-800 p-6 rounded-lg shadow-md w-full max-w-2xl mb-8">
         {/* Product Image */}
@@ -74,6 +74,15 @@ const Checkout = () => {
 />
 
       </div>
+      {/* Inline Styles */}
+      <style jsx>{`
+        h1 {
+          background: url("/background.webp") 50% 50%;
+          background-size: cover;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+        }
+      `}</style>
     </div>
   );
 };

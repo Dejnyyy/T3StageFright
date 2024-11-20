@@ -8,26 +8,26 @@ const Tour = () => {
     {
       date: "November 16-17",
       city: "Las Vegas, NV",
-      venue: "ComplexCon",
-      tickets: "#",
+      venue: "ComplexCon",  
+      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 14",
       city: "Miami Gardens, FL",
       venue: "Rolling Loud",
-      tickets: "#",
+      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 20",
       city: "Gallipolis, OH",
       venue: "Gallipolis City Park",
-      tickets: "#",
+      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
     },
     {
       date: "December 28",
       city: "Hunington, WV",
       venue: "AT&T Stadium",
-      tickets: "#",
+      tickets: "/checkout?product=Ticket&price=50&image=/bg.png", // Updated link to Checkout
     },
   ];
 
@@ -41,22 +41,22 @@ const Tour = () => {
         <Link href="/tour">
           <Marquee
             gradient={false}
-        speed={100}
+            speed={100}
             className="fixed top-0 w-full z-40 font-bold text-white bg-black"
           >
             !!! New Tour - Check out the schedule !!!
           </Marquee>
         </Link>
- {/* Rotating Logo */}
- <section className="w-full mx-auto mt-4 text-center">
-  <div className="perspective">
-    <img
-      src="/StageFrightNobg.png"
-      alt="Stage Fright Logo"
-      className="rotating-side-logo mx-auto w-1/2"
-    />
-  </div>
-</section>
+        {/* Rotating Logo */}
+        <section className="w-full mx-auto mt-4 text-center">
+          <div className="perspective">
+            <img
+              src="/StageFrightNobg.png"
+              alt="Stage Fright Logo"
+              className="rotating-side-logo mx-auto w-1/2"
+            />
+          </div>
+        </section>
 
         {/* Navigation Links */}
         <section>
@@ -112,9 +112,9 @@ const Tour = () => {
                       {tour.venue}
                     </td>
                     <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base text-blue-500">
-                      <a href={tour.tickets} className="underline">
+                      <Link href={tour.tickets} className="underline">
                         Tickets
-                      </a>
+                      </Link>
                     </td>
                   </tr>
                 ))}
