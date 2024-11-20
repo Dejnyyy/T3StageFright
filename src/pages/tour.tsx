@@ -41,10 +41,9 @@ const Tour = () => {
         <Link href="/tour">
           <Marquee
             gradient={false}
-            speed={50}
+        speed={100}
             className="fixed top-0 w-full z-40 font-bold text-white bg-black"
           >
-            !!! New Tour - Check out the schedule !!! &nbsp;&nbsp;&nbsp;
             !!! New Tour - Check out the schedule !!!
           </Marquee>
         </Link>
