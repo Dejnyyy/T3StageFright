@@ -83,13 +83,28 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   const toggleMute = () => {
     if (audioRef.current) {
-      audioRef.current.muted = !audioRef.current.muted;
-      setIsMuted(audioRef.current.muted);
+      const newMutedState = !audioRef.current.muted;
+      audioRef.current.muted = newMutedState;
+      setIsMuted(newMutedState);
+      // Save the mute state to localStorage
+      localStorage.setItem("isMuted", JSON.stringify(newMutedState));
     }
   };
+  
+  useEffect(() => {
+    // Load the mute state from localStorage on initial render
+    const savedMuteState = localStorage.getItem("isMuted");
+    if (savedMuteState !== null) {
+      const isMutedFromStorage = JSON.parse(savedMuteState);
+      if (audioRef.current) {
+        audioRef.current.muted = isMutedFromStorage;
+      }
+      setIsMuted(isMutedFromStorage);
+    }
+  }, []);
+  
 
   if (isLoading) {
     return (
