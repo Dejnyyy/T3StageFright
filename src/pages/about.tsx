@@ -9,10 +9,7 @@ const About = () => {
         <title>Stage Fright - About</title>
       </Head>
       <div className="bg-black text-white min-h-screen">
-       
-      <Link href="/">
-      <h2 className="fixed top-4 left-4">Back</h2>
-      </Link>
+      
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">
         <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
