@@ -3,9 +3,11 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import About from "./about"; 
+import About from "./about"; // Import the About component
+import Loading from "./Loading/loading"; // Import the Loading component
 
 const Home = () => {
+  const [isLoading, setIsLoading] = useState(true); // State for loading animation
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTableVisible, setIsTableVisible] = useState(false);
 
@@ -54,6 +56,12 @@ const Home = () => {
     },
   ];
 
+  // Simulate loading process
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 3000); // Set loading duration
+    return () => clearTimeout(timer);
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const tableSection = document.getElementById("tour-table");
@@ -68,6 +76,14 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="text-center">
+         <Loading  />
+      </div>
+    );
+  }
 
   return (
     <>
@@ -88,8 +104,8 @@ const Home = () => {
         <section className="w-full mx-auto pt-8 text-center">
           <div className="perspective">
             <Image
-            width={300}
-            height={300}
+              width={300}
+              height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"
@@ -213,9 +229,8 @@ const Home = () => {
 
         {/* About Section */}
         <section className="mt-12 text-center">
-        <About />
+          <About />
         </section>
-       
       </div>
     </>
   );
