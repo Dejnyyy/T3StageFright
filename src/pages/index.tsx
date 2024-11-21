@@ -84,7 +84,7 @@ const Home = () => {
   
 const toggleMute = () => {
   if (audioRef.current) {
-    const newMutedState = !audioRef.current.muted;
+    const newMutedState:boolean = !audioRef.current.muted;
     audioRef.current.muted = newMutedState;
     setIsMuted(newMutedState);
     localStorage.setItem("isMuted", JSON.stringify(newMutedState));
