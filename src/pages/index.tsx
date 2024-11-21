@@ -140,7 +140,7 @@ const Home = () => {
         {/* Mute Button */}
         <button
           onClick={toggleMute}
-          className="fixed top-8 right-4 bg-white text-black px-4 py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
+          className="fixed top-12 right-4 bg-white text-black text-md sm:text-lg  px-2 sm:px-4 py-1 sm:py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
         >
           {isMuted ? "Unmute" : "Mute"}
         </button>
