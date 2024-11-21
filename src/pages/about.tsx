@@ -15,7 +15,7 @@ const About = () => {
       </Link>
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">
-        <h1 className="text-5xl -mt-8 mb-8 font-extrabold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+        <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
             About Us
           </h1>
          {/* Rotating Logo */}
@@ -28,7 +28,7 @@ const About = () => {
               className="rotating-side-logo mx-auto w-1/2"
             />
           </div>
-          <p className="text-center italic text-gray-400 hover:text-white">"Catch the vibe, live the energy!"</p>
+          <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
         </section>
 
         {/* About Section */}
@@ -37,7 +37,7 @@ const About = () => {
             <h2 className="text-4xl font-bold mb-8">Our Story</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Stage Fright started with four friends and a dream: to create music
-              that moves people. From our garages to packed arenas, we've stayed
+              that moves people. From our garages to packed arenas, we&apos;ve stayed
               true to our passion for delivering electrifying rock performances.
               Every song we write and every show we perform is a celebration of
               energy, emotion, and connection with our fans.

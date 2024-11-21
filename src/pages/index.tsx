@@ -3,6 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
+import About from "./about"; 
 
 const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -111,7 +112,7 @@ const Home = () => {
 
         {/* Merch Section */}
         <section className="mt-12 text-center">
-          <h1 className="text-5xl merch-text">Merch</h1>
+          <h1 className="text-6xl font-bold merch-text">Merch</h1>
           <div className="flex items-center justify-center mt-4">
             <button
               onClick={handlePrev}
@@ -159,7 +160,7 @@ const Home = () => {
 
         {/* Tour Table */}
         <section className="mt-12 text-center">
-          <h1 className="text-6xl merch-text">Tour Tickets</h1>
+          <h1 className="text-6xl font-bold merch-text">Tour Tickets</h1>
           <div
             id="tour-table"
             className={`transition-opacity duration-700 ${
@@ -212,10 +213,9 @@ const Home = () => {
 
         {/* About Section */}
         <section className="mt-12 text-center">
-          <h1 className="text-6xl merch-text">About</h1>
-          <h2 className="text-2xl mt-4">Stage Fright</h2>
-          <p className="mt-2">Your favorite local rock band</p>
+        <About />
         </section>
+       
       </div>
     </>
   );

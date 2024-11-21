@@ -73,7 +73,7 @@ const Tour = () => {
               Merch
             </Link>
           </div>
-          <h1 className="text-center text-7xl mt-8 bg-clip-text text-transparent bg-center bg-cover">
+          <h1 className="text-center text-6xl font-bold mt-8 bg-clip-text text-transparent bg-center bg-cover">
             Tour
           </h1>
           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>

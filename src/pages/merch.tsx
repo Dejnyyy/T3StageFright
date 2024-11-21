@@ -34,7 +34,9 @@ const Merch = () => {
         {/* Rotating Logo */}
         <section className="w-full mx-auto mt-4 text-center">
           <div className="perspective">
-            <img
+            <Image
+            width={300}
+            height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"
@@ -61,7 +63,7 @@ const Merch = () => {
               </Marquee>
             </div>
           </Link>
-          <h1 className="text-center text-7xl mt-10 bg-clip-text text-transparent bg-center bg-cover">
+          <h1 className="text-center text-6xl font-bold mt-10 bg-clip-text text-transparent bg-center bg-cover">
             Merch
           </h1>
         </section>
