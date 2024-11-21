@@ -11,7 +11,7 @@ const Home = () => {
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTableVisible, setIsTableVisible] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const carouselItems = [
