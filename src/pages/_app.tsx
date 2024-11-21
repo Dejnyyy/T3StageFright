@@ -2,6 +2,7 @@ import { GeistSans } from "geist/font/sans";
 import { type AppType } from "next/app";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"; // Import PayPal SDK Provider
 import { api } from "~/utils/api";
+import Head from "next/head";
 
 import "~/styles/globals.css";
 
@@ -13,9 +14,15 @@ const initialPayPalOptions = {
 
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
+    
     <PayPalScriptProvider options={initialPayPalOptions}>
       <div className={GeistSans.className}>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
         <Component {...pageProps} />
+        
       </div>
     </PayPalScriptProvider>
   );
