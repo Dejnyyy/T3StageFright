@@ -81,14 +81,15 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMute = () => {
-    if (audioRef.current) {
-      const newMutedState = !audioRef.current.muted;
-      audioRef.current.muted = newMutedState;
-      setIsMuted(newMutedState);
-      localStorage.setItem("isMuted", JSON.stringify(newMutedState));
-    }
-  };
+  
+const toggleMute = () => {
+  if (audioRef.current) {
+    const newMutedState = !audioRef.current.muted;
+    audioRef.current.muted = newMutedState;
+    setIsMuted(newMutedState);
+    localStorage.setItem("isMuted", JSON.stringify(newMutedState));
+  }
+};
 
   useEffect(() => {
     const savedMuteState = localStorage.getItem("isMuted");
