@@ -34,7 +34,7 @@ const About = () => {
         {/* About Section */}
         <section className="py-16 px-8 border-b border-gray-700">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-8">Our Story</h2>
+            <h2 className="text-6xl merch-text font-bold mb-8">Our Story</h2>
             <p className="text-lg text-gray-300 leading-relaxed">
               Stage Fright started with four friends and a dream: to create music
               that moves people. From our garages to packed arenas, we&apos;ve stayed
@@ -51,7 +51,7 @@ const About = () => {
         </section>
 
         <section className="py-16 text-center">
-          <h2 className="text-4xl font-bold">Tour Dates</h2>
+          <h2 className="text-6xl merch-text font-bold">Tour Dates</h2>
           
           <Link
             href="/tour"
