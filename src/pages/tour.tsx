@@ -39,14 +39,13 @@ const Tour = () => {
   ];
   
   useEffect(() => {
-    // Simulate loading process
     const timer = setTimeout(() => {
-      setIsFadingOut(true); 
-      setTimeout(() => setIsLoading(false), 1000); 
-    }, 1000);
-
+      setIsFadingOut(true);
+      setTimeout(() => setIsLoading(false), 1000);
+      }, 1000);
     return () => clearTimeout(timer);
   }, []);
+  
 
   if (isLoading) {
     return (
