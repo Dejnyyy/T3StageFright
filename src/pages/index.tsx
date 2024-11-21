@@ -290,15 +290,7 @@ const Home = () => {
              About Us
            </h1>
            {/* Rotating Logo */}
-           <div className="perspective">
-             <Image
-               width={300}
-               height={300}
-               src="/StageFrightNobg.png"
-               alt="Stage Fright Logo"
-               className="rotating-side-logo mx-auto w-1/2"
-             />
-           </div>
+          
            <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
          </section>
  
