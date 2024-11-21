@@ -123,7 +123,7 @@ const Merch = () => {
                     <p className="text-lg font-medium">${product.price}</p>
                     <Link
                       href={product.link}
-                      className="bg-white hover:bg-gray-300 text-black px-4 py-2 rounded-lg text-sm font-semibold"
+                      className="bg-white hover:bg-gray-300 text-black px-4 py-2 rounded-lg text-sm"
                     >
                       Buy Now
                     </Link>
