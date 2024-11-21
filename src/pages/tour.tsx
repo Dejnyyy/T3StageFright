@@ -144,7 +144,7 @@ const Tour = () => {
                     </td>
                     <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base text-blue-500">
                       <Link href={tour.tickets} className="underline">
-                        Tickets
+                        Buy Ticket
                       </Link>
                     </td>
                   </tr>
