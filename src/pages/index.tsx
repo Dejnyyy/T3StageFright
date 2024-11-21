@@ -34,7 +34,7 @@ const Home = () => {
 
   const tourData: TourData[] = [
     {
-      date: "November 16-17",
+      date: "December 10",
       city: "Las Vegas, NV",
       venue: "ComplexCon",
       tickets: "/checkout?product=Ticket%20LasVegas&price=50&image=/bg.png",
@@ -233,7 +233,7 @@ const Home = () => {
           <h1 className="text-6xl font-bold merch-text">Tour Tickets</h1>
           <div
             id="tour-table"
-            className={`transition-opacity duration-700 ${
+            className={`transition-opacity duration-700 md:w-3/4 mx-auto ${
               isTableVisible ? "opacity-100" : "opacity-0"
             }`}
           >
