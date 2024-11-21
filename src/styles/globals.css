@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: black;
+}
 .perspective {
     perspective: 1000px; /* Adjust to enhance the 3D depth effect */
   }
