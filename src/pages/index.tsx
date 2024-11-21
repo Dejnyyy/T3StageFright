@@ -4,35 +4,35 @@ import Head from "next/head";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import Loading from "./Loading/loading";
-import styles from "./Loading/loading.module.css"; 
+import styles from "./Loading/loading.module.css";
+
+interface CarouselItem {
+  src: string;
+  alt: string;
+}
+
+interface TourData {
+  date: string;
+  city: string;
+  venue: string;
+  tickets: string;
+}
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isFadingOut, setIsFadingOut] = useState(false);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTableVisible, setIsTableVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isTableVisible, setIsTableVisible] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  const carouselItems = [
+  const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
     { src: "/merch.png", alt: "StageFright Tee" },
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prev) =>
-      prev > 0 ? prev - 1 : carouselItems.length - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev < carouselItems.length - 1 ? prev + 1 : 0
-    );
-  };
-
-  const tourData = [
+  const tourData: TourData[] = [
     {
       date: "November 16-17",
       city: "Las Vegas, NV",
@@ -60,10 +60,9 @@ const Home = () => {
   ];
 
   useEffect(() => {
-    // Simulate loading process
     const timer = setTimeout(() => {
-      setIsFadingOut(true); 
-      setTimeout(() => setIsLoading(false), 1000); 
+      setIsFadingOut(true);
+      setTimeout(() => setIsLoading(false), 1000);
     }, 1000);
 
     return () => clearTimeout(timer);
@@ -72,17 +71,16 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       const tableSection = document.getElementById("tour-table");
-      const rect = tableSection?.getBoundingClientRect();
-      if (rect && rect.top < window.innerHeight && rect.bottom >= 0) {
-        setIsTableVisible(true);
-      } else {
-        setIsTableVisible(false);
+      if (tableSection) {
+        const rect = tableSection.getBoundingClientRect();
+        setIsTableVisible(rect.top < window.innerHeight && rect.bottom >= 0);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   const toggleMute = () => {
     if (audioRef.current) {
       const newMutedState = !audioRef.current.muted;
@@ -91,18 +89,29 @@ const Home = () => {
       localStorage.setItem("isMuted", JSON.stringify(newMutedState));
     }
   };
-  
+
   useEffect(() => {
     const savedMuteState = localStorage.getItem("isMuted");
     if (savedMuteState !== null) {
       const isMutedFromStorage = JSON.parse(savedMuteState);
+      setIsMuted(isMutedFromStorage);
       if (audioRef.current) {
         audioRef.current.muted = isMutedFromStorage;
       }
-      setIsMuted(isMutedFromStorage);
     }
   }, []);
-  
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev > 0 ? prev - 1 : carouselItems.length - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) =>
+      prev < carouselItems.length - 1 ? prev + 1 : 0
+    );
+  };
 
   if (isLoading) {
     return (
@@ -122,8 +131,8 @@ const Home = () => {
         <title>Stage Fright</title>
       </Head>
       <div className="bg-black text-white">
-       {/* Background Music */}
-       <audio ref={audioRef} autoPlay loop>
+        {/* Background Music */}
+        <audio ref={audioRef} autoPlay loop>
           <source src="/audio.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
@@ -135,6 +144,7 @@ const Home = () => {
         >
           {isMuted ? "Unmute" : "Mute"}
         </button>
+
         {/* Marquee */}
         <Link href="/tour">
           <div className="fixed top-0 w-full z-40 bg-black">
