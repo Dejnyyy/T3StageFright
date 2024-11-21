@@ -1,0 +1,52 @@
+.sound-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    gap: 5px;
+  }
+  body{
+    background-color: black;
+  }
+  .bar {
+    width: 10px;
+    height: 50px;
+    background-color: #fff;
+    animation: sound 1s infinite ease-in-out;
+  }
+  
+  .bar:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .bar:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .bar:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  .bar:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  .bar:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+  .bar:nth-child(6) {
+    animation-delay: 1s;
+  }
+  .bar:nth-child(7) {
+    animation-delay: 1.2s;
+  }
+  .bar:nth-child(8) {
+    animation-delay: 1.4s;
+  }
+  
+  @keyframes sound {
+    0%,
+    100% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(2);
+    }
+  }
+  
