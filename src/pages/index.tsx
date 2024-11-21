@@ -255,7 +255,7 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                {tourData.map((tour, index) => (
+                {tourData.map((tour: TourData, index: number) => (
                   <tr
                     key={index}
                     className="hover:bg-gray-800 transition-colors"
