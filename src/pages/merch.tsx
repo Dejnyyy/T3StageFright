@@ -1,29 +1,58 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import Marquee from "react-fast-marquee";
+import Loading from "./Loading/loading"; // Import the Loading component
+import styles from "./Loading/loading.module.css"; // CSS module for animations
 
 const Merch = () => {
+  const [isLoading, setIsLoading] = useState(true); // State for loading animation
+  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
+
   const products = [
     {
       name: "StageFright Hoodie",
       price: 40,
-      image: "/merchhood.png", // Correctly includes the leading slash
-      link: "/checkout?product=StageFright%20Hoodie&price=40&image=/merchhood.png", // Updated image query with leading slash
+      image: "/merchhood.png",
+      link: "/checkout?product=StageFright%20Hoodie&price=40&image=/merchhood.png",
     },
     {
       name: "StageFright Cap",
       price: 15,
-      image: "/merchcap.png", // Correctly includes the leading slash
-      link: "/checkout?product=StageFright%20Cap&price=15&image=/merchcap.png", // Updated image query with leading slash
+      image: "/merchcap.png",
+      link: "/checkout?product=StageFright%20Cap&price=15&image=/merchcap.png",
     },
     {
       name: "StageFright Tee",
       price: 20,
-      image: "/merch.png", // Correctly includes the leading slash
-      link: "/checkout?product=StageFright%20Tee&price=20&image=/merch.png", // Updated image query with leading slash
+      image: "/merch.png",
+      link: "/checkout?product=StageFright%20Tee&price=20&image=/merch.png",
     },
   ];
+
+  useEffect(() => {
+    // Simulate loading process
+    const timer = setTimeout(() => {
+      setIsFadingOut(true); // Start fade-out effect
+      setTimeout(() => setIsLoading(false), 1000); // After fade-out, hide loading animation
+    }, 1000); 
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className={`${styles["fade-out"]} ${
+          isFadingOut ? styles["fade-out-active"] : ""
+        } text-center fade-in`}
+      >
+        <Loading />
+      </div>
+    );
+  }
+  
 
   return (
     <>
@@ -35,8 +64,8 @@ const Merch = () => {
         <section className="w-full mx-auto mt-4 text-center">
           <div className="perspective">
             <Image
-            width={300}
-            height={300}
+              width={300}
+              height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"

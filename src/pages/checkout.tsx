@@ -2,11 +2,37 @@ import { useRouter } from "next/router";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import Image from "next/image";
 import Link from  "next/link";
+import { useState, useEffect } from "react";
+import Loading from "./Loading/loading";
+import styles from "./Loading/loading.module.css";
 
 const Checkout = () => {
   const router = useRouter();
   const { product, price, image } = router.query; // Capture product details from query parameters
+  const [isLoading, setIsLoading] = useState(true); 
+  const [isFadingOut, setIsFadingOut] = useState(false); 
 
+  useEffect(() => {
+    // Simulate loading process
+    const timer = setTimeout(() => {
+      setIsFadingOut(true); 
+      setTimeout(() => setIsLoading(false), 1000); 
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className={`${styles["fade-out"]} ${
+          isFadingOut ? styles["fade-out-active"] : ""
+        } text-center fade-in`}
+      >
+        <Loading />
+      </div>
+    );
+  }
   const handleApprove = (orderID: string) => {
     console.log("Order ID:", orderID);
     alert(`Payment successful! Order ID: ${orderID}`);

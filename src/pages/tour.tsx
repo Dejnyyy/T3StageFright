@@ -1,9 +1,16 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Loading from "./Loading/loading";
+import styles from "./Loading/loading.module.css";
 import Marquee from "react-fast-marquee";
 
+
 const Tour = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    const [isFadingOut, setIsFadingOut] = useState(false);
+
   const tourData = [
     {
       date: "November 16-17",
@@ -30,7 +37,29 @@ const Tour = () => {
       tickets: "/checkout?product=Ticket%20Hunington&price=50&image=/bg.png", // Updated link to Checkout
     },
   ];
+  
+  useEffect(() => {
+    // Simulate loading process
+    const timer = setTimeout(() => {
+      setIsFadingOut(true); 
+      setTimeout(() => setIsLoading(false), 1000); 
+    }, 1000);
 
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className={`${styles["fade-out"]} ${
+          isFadingOut ? styles["fade-out-active"] : ""
+        } text-center fade-in`}
+      >
+        <Loading />
+      </div>
+    );
+  }
+  
   return (
     <>
       <Head>

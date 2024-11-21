@@ -3,18 +3,18 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Loading from "./Loading/loading"; // Import the Loading component
-import styles from "./Loading/loading.module.css"; // CSS module for animations
+import styles from "./Loading/loading.module.css";
 
 const About = () => {
-  const [isLoading, setIsLoading] = useState(true); // State for loading animation
-  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
+  const [isLoading, setIsLoading] = useState(true); 
+  const [isFadingOut, setIsFadingOut] = useState(false); 
 
   useEffect(() => {
     // Simulate loading process
     const timer = setTimeout(() => {
-      setIsFadingOut(true); // Start fade-out effect
-      setTimeout(() => setIsLoading(false), 1000); // After fade-out, hide loading animation
-    }, 3000); // 3 seconds loading duration
+      setIsFadingOut(true); 
+      setTimeout(() => setIsLoading(false), 1000); 
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,7 +37,9 @@ const About = () => {
         <title>Stage Fright - About</title>
       </Head>
       <div className="bg-black text-white min-h-screen fade-in">
-      
+      <Link href={"/"}>
+        <h2 className="top-4 left-4 absolute underline">Home</h2>
+      </Link>
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">
           <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
