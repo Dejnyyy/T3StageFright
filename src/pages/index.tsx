@@ -7,11 +7,11 @@ import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css"; 
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true); // State for loading animation
-  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTableVisible, setIsTableVisible] = useState(false);
-  const [isMuted, setIsMuted] = useState(false); // State for mute/unmute
+  const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const carouselItems = [
@@ -88,13 +88,11 @@ const Home = () => {
       const newMutedState = !audioRef.current.muted;
       audioRef.current.muted = newMutedState;
       setIsMuted(newMutedState);
-      // Save the mute state to localStorage
       localStorage.setItem("isMuted", JSON.stringify(newMutedState));
     }
   };
   
   useEffect(() => {
-    // Load the mute state from localStorage on initial render
     const savedMuteState = localStorage.getItem("isMuted");
     if (savedMuteState !== null) {
       const isMutedFromStorage = JSON.parse(savedMuteState);
