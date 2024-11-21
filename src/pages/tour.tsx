@@ -50,7 +50,9 @@ const Tour = () => {
         {/* Rotating Logo */}
         <section className="w-full mx-auto mt-4 text-center">
           <div className="perspective">
-            <img
+            <Image
+            width={300}
+            height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"

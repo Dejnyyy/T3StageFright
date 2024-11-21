@@ -90,7 +90,9 @@ const Checkout = () => {
        {/* Rotating Logo */}
        <section className="w-1/2 mx-auto pt-8 text-center">
           <div className="perspective">
-            <img
+            <Image
+                width={300}
+                height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"

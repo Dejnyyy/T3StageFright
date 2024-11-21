@@ -149,12 +149,12 @@ const Home = () => {
               &#10095;
             </button>
           </div>
-          <a
+          <Link
             href="/merch"
             className="bg-white text-black rounded-xl shadow-lg py-2 px-4 mt-4 inline-block hover:bg-gray-300"
           >
             View More
-          </a>
+          </Link>
         </section>
 
         {/* Tour Table */}
