@@ -5,9 +5,6 @@
     height: 100px;
     gap: 5px;
   }
-  body{
-    background-color: black;
-  }
   .bar {
     width: 10px;
     height: 50px;

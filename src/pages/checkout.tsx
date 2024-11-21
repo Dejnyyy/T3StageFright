@@ -39,7 +39,7 @@ const Checkout = () => {
     // Optional: Redirect to a success page or save order details in a database
   };
 
-  const handleError = (error: any) => {
+  const handleError = (error: unknown) => {
     console.error("PayPal Checkout Error:", error);
     alert("An error occurred during the payment process.");
   };
@@ -97,7 +97,7 @@ const Checkout = () => {
   onApprove={async (data, actions) => {
     if (actions.order) {
       const order = await actions.order.capture(); // Capture the payment
-      handleApprove(order.id as string); // Handle approved order with type assertion
+      handleApprove(order.id ?? "unknown order id"); // Handle approved order with type assertion
     }
   }}
   onError={handleError}
