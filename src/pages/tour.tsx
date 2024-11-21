@@ -95,8 +95,8 @@ const Tour = () => {
             <Link href="/" className="mx-4">
               Home
             </Link>
-            <Link href="/tour" className="mx-4">
-              Tour
+            <Link href="/about" className="mx-4">
+              About
             </Link>
             <Link href="/merch" className="mx-4">
               Merch
