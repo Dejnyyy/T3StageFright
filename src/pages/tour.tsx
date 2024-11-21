@@ -6,46 +6,58 @@ import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css";
 import Marquee from "react-fast-marquee";
 
-
 const Tour = () => {
-    const [isLoading, setIsLoading] = useState(true);
-    const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   const tourData = [
     {
       date: "November 16-17",
+      shortDate: "Nov 16-17",
       city: "Las Vegas, NV",
-      venue: "ComplexCon",  
-      tickets: "/checkout?product=Ticket%20LasVegas&price=50&image=/bg.png", // Updated link to Checkout
+      venue: "ComplexCon",
+      tickets: "/checkout?product=Ticket%20LasVegas&price=50&image=/bg.png",
     },
     {
       date: "December 14",
+      shortDate: "Dec 14",
       city: "Miami Gardens, FL",
       venue: "Rolling Loud",
-      tickets: "/checkout?product=Ticket%20Miami&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Miami&price=50&image=/bg.png",
     },
     {
       date: "December 20",
+      shortDate: "Dec 20",
       city: "Gallipolis, OH",
       venue: "Gallipolis City Park",
-      tickets: "/checkout?product=Ticket%20Gallipolis&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Gallipolis&price=50&image=/bg.png",
     },
     {
       date: "December 28",
+      shortDate: "Dec 28",
       city: "Hunington, WV",
       venue: "AT&T Stadium",
-      tickets: "/checkout?product=Ticket%20Hunington&price=50&image=/bg.png", // Updated link to Checkout
+      tickets: "/checkout?product=Ticket%20Hunington&price=50&image=/bg.png",
     },
   ];
-  
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsFadingOut(true);
       setTimeout(() => setIsLoading(false), 1000);
-      }, 1000);
+    }, 1000);
     return () => clearTimeout(timer);
   }, []);
-  
 
   if (isLoading) {
     return (
@@ -58,7 +70,7 @@ const Tour = () => {
       </div>
     );
   }
-  
+
   return (
     <>
       <Head>
@@ -79,8 +91,8 @@ const Tour = () => {
         <section className="w-full mx-auto mt-4 text-center">
           <div className="perspective">
             <Image
-            width={300}
-            height={300}
+              width={300}
+              height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"
@@ -104,7 +116,9 @@ const Tour = () => {
           <h1 className="text-center text-6xl font-bold mt-8 bg-clip-text text-transparent bg-center bg-cover">
             Tour
           </h1>
-          <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
+          <p className="text-center italic text-gray-400 hover:text-white">
+            &quot;Catch the vibe, live the energy!&quot;
+          </p>
         </section>
 
         {/* Tour Table */}
@@ -134,7 +148,7 @@ const Tour = () => {
                     className="hover:bg-gray-800 transition-colors"
                   >
                     <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base">
-                      {tour.date}
+                      {isLargeScreen ? tour.date : tour.shortDate}
                     </td>
                     <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base">
                       {tour.city}
