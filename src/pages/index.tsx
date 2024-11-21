@@ -3,7 +3,7 @@ import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
-import Loading from "./Loading/loading"; // Import the Loading component
+import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css"; 
 
 const Home = () => {
@@ -108,20 +108,19 @@ const Home = () => {
         <title>Stage Fright</title>
       </Head>
       <div className="bg-black text-white">
-          {/* Background Music */}
-        <audio ref={audioRef} autoPlay loop>
-          <source src="/audio.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
+        {/* Background Music */}
+      <audio ref={audioRef} autoPlay loop>
+        <source src="/audio.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
 
-        {/* Mute Button */}
-        <button
-          onClick={toggleMute}
-          className="fixed top-8 right-4 bg-white text-black px-4 py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
-        >
-          {isMuted ? "Unmute" : "Mute"}
-        </button>
-
+      {/* Mute Button */}
+      <button
+        onClick={toggleMute}
+        className="fixed top-8 right-4 bg-white text-black px-4 py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
+      >
+        {isMuted ? "Unmute" : "Mute"}
+      </button>
         {/* Marquee */}
         <Link href="/tour">
           <div className="fixed top-0 w-full z-40 bg-black">
