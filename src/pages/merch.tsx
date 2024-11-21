@@ -75,7 +75,7 @@ const Merch = () => {
 
         {/* Navigation and Header */}
         <section>
-          <div className="top-8 absolute left-4">
+          <div className="top-8 fixed left-4">
             <Link href="/" target="_blank">
               Home
             </Link>
@@ -104,7 +104,7 @@ const Merch = () => {
               {products.map((product, index) => (
                 <div
                   key={index}
-                  className="border border-white rounded-lg flex flex-col bg-black p-4 h-full"
+                  className="border border-white shadow-md shadow-white rounded-lg flex flex-col bg-black p-4 h-full"
                 >
                   {/* Product Image */}
                   <Link href={product.image} target="_blank">
