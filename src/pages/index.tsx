@@ -19,11 +19,11 @@ interface TourData {
 }
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isFadingOut, setIsFadingOut] = useState<boolean>(false);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [isTableVisible, setIsTableVisible] = useState<boolean>(false);
-  const [isMuted, setIsMuted] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState(true); // Type inferred as boolean
+  const [isFadingOut, setIsFadingOut] = useState(false); // Type inferred as boolean
+  const [currentIndex, setCurrentIndex] = useState(0); // Type inferred as number
+  const [isTableVisible, setIsTableVisible] = useState(false); // Type inferred as boolean
+  const [isMuted, setIsMuted] = useState(false); // Type inferred as boolean
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const carouselItems: CarouselItem[] = [
@@ -81,20 +81,19 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
-const toggleMute = () => {
-  if (audioRef.current) {
-    const newMutedState:boolean = !audioRef.current.muted;
-    audioRef.current.muted = newMutedState;
-    setIsMuted(newMutedState);
-    localStorage.setItem("isMuted", JSON.stringify(newMutedState));
-  }
-};
+  const toggleMute = () => {
+    if (audioRef.current) {
+      const newMutedState = !audioRef.current.muted;
+      audioRef.current.muted = newMutedState;
+      setIsMuted(newMutedState);
+      localStorage.setItem("isMuted", JSON.stringify(newMutedState));
+    }
+  };
 
   useEffect(() => {
     const savedMuteState = localStorage.getItem("isMuted");
-    if (savedMuteState !== null) {
-      const isMutedFromStorage: boolean = JSON.parse(savedMuteState);
+    if (savedMuteState) {
+      const isMutedFromStorage = JSON.parse(savedMuteState) as boolean;
       setIsMuted(isMutedFromStorage);
       if (audioRef.current) {
         audioRef.current.muted = isMutedFromStorage;
@@ -283,27 +282,26 @@ const toggleMute = () => {
         </section>
 
         {/* About Section */}
-        <section className="mt-12 text-center">
          
-        {/* Hero Section */}
-        <section className="text-center py-16 border-b border-gray-700">
-          <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-            About Us
-          </h1>
-          {/* Rotating Logo */}
-          <div className="perspective">
-            <Image
-              width={300}
-              height={300}
-              src="/StageFrightNobg.png"
-              alt="Stage Fright Logo"
-              className="rotating-side-logo mx-auto w-1/2"
-            />
-          </div>
-          <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
-        </section>
-
-        {/* About Section */}
+         
+         {/* Hero Section */}
+         <section className="text-center py-16 border-b border-gray-700">
+           <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+             About Us
+           </h1>
+           {/* Rotating Logo */}
+           <div className="perspective">
+             <Image
+               width={300}
+               height={300}
+               src="/StageFrightNobg.png"
+               alt="Stage Fright Logo"
+               className="rotating-side-logo mx-auto w-1/2"
+             />
+           </div>
+           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
+         </section>
+ 
         <section className="py-16 px-8 border-b border-gray-700">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-6xl merch-text font-bold mb-8">Our Story</h2>
@@ -337,8 +335,7 @@ const toggleMute = () => {
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">© 2024 Stage Fright</p>
         </footer>
-
-        </section>
+        
       </div>
     </>
   );
