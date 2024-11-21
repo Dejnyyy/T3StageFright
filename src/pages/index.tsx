@@ -58,7 +58,7 @@ const Home = () => {
 
   // Simulate loading process
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000); // Set loading duration
+    const timer = setTimeout(() => setIsLoading(false), 2000); // Set loading duration
     return () => clearTimeout(timer);
   }, []);
 
@@ -79,7 +79,7 @@ const Home = () => {
 
   if (isLoading) {
     return (
-      <div className="text-center">
+      <div className="text-center fade-in">
          <Loading  />
       </div>
     );

@@ -1,25 +1,53 @@
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Loading from "./Loading/loading"; // Import the Loading component
+import styles from "./Loading/loading.module.css"; // CSS module for animations
 
 const About = () => {
+  const [isLoading, setIsLoading] = useState(true); // State for loading animation
+  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
+
+  useEffect(() => {
+    // Simulate loading process
+    const timer = setTimeout(() => {
+      setIsFadingOut(true); // Start fade-out effect
+      setTimeout(() => setIsLoading(false), 1000); // After fade-out, hide loading animation
+    }, 3000); // 3 seconds loading duration
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div
+        className={`${styles["fade-out"]} ${
+          isFadingOut ? styles["fade-out-active"] : ""
+        } text-center fade-in`}
+      >
+        <Loading />
+      </div>
+    );
+  }
+
   return (
     <>
       <Head>
         <title>Stage Fright - About</title>
       </Head>
-      <div className="bg-black text-white min-h-screen">
+      <div className="bg-black text-white min-h-screen fade-in">
       
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">
-        <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+          <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
             About Us
           </h1>
-         {/* Rotating Logo */}
-         <div className="perspective">
+          {/* Rotating Logo */}
+          <div className="perspective">
             <Image
-            width={300}
-            height={300}
+              width={300}
+              height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
               className="rotating-side-logo mx-auto w-1/2"
@@ -61,7 +89,6 @@ const About = () => {
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">© 2024 Stage Fright</p>
-         
         </footer>
       </div>
     </>

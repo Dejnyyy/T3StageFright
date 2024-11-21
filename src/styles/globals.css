@@ -33,3 +33,23 @@
     animation: scroll 10s linear infinite; /* Scrolls continuously */
     white-space: nowrap; /* Prevents text wrapping */
   }
+  .fade-out {
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Fade-out transition */
+  }
+  
+  .fade-out-active {
+    opacity: 0; /* Fully transparent */
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Fade-in transition */
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
