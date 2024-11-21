@@ -8,7 +8,7 @@ import styles from "./Loading/loading.module.css";
 
 const Checkout = () => {
   const router = useRouter();
-  const { product, price, image } = router.query; // Capture product details from query parameters
+  const { product, price, image } = router.query;
   const [isLoading, setIsLoading] = useState(true); 
   const [isFadingOut, setIsFadingOut] = useState(false); 
 
