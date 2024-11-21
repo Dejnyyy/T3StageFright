@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
@@ -11,6 +11,8 @@ const Home = () => {
   const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out effect
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTableVisible, setIsTableVisible] = useState(false);
+  const [isMuted, setIsMuted] = useState(false); // State for mute/unmute
+  const audioRef = useRef(null);
   const carouselItems = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
@@ -81,6 +83,13 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMute = () => {
+    if (audioRef.current) {
+      audioRef.current.muted = !audioRef.current.muted;
+      setIsMuted(audioRef.current.muted);
+    }
+  };
+
   if (isLoading) {
     return (
       <div
@@ -99,6 +108,20 @@ const Home = () => {
         <title>Stage Fright</title>
       </Head>
       <div className="bg-black text-white">
+          {/* Background Music */}
+        <audio ref={audioRef} autoPlay loop>
+          <source src="/audio.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+
+        {/* Mute Button */}
+        <button
+          onClick={toggleMute}
+          className="fixed top-8 right-4 bg-white text-black px-4 py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
+        >
+          {isMuted ? "Unmute" : "Mute"}
+        </button>
+
         {/* Marquee */}
         <Link href="/tour">
           <div className="fixed top-0 w-full z-40 bg-black">
