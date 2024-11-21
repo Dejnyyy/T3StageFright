@@ -94,7 +94,7 @@ const toggleMute = () => {
   useEffect(() => {
     const savedMuteState = localStorage.getItem("isMuted");
     if (savedMuteState !== null) {
-      const isMutedFromStorage = JSON.parse(savedMuteState);
+      const isMutedFromStorage: boolean = JSON.parse(savedMuteState);
       setIsMuted(isMutedFromStorage);
       if (audioRef.current) {
         audioRef.current.muted = isMutedFromStorage;
