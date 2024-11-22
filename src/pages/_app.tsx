@@ -3,6 +3,7 @@ import { type AppType } from "next/app";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js"; // Import PayPal SDK Provider
 import { api } from "~/utils/api";
 import Head from "next/head";
+import Script from "next/script"; 
 
 import "~/styles/globals.css";
 
@@ -18,6 +19,10 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     <PayPalScriptProvider options={initialPayPalOptions}>
       <div className={GeistSans.className}>
       <Head>
+      <Script
+          src="https://assets.calendly.com/assets/external/widget.js"
+          strategy="beforeInteractive"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Component {...pageProps} />
