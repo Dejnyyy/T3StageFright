@@ -140,7 +140,7 @@ const Home = () => {
         {/* Mute Button */}
         <button
           onClick={toggleMute}
-          className="fixed top-12 right-4 bg-white text-black text-md sm:text-lg  px-2 sm:px-4 py-1 sm:py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
+          className="fixed top-36 md:top-12 right-4 bg-white text-black text-md sm:text-lg  px-2 sm:px-4 py-1 sm:py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
         >
           {isMuted ? "Unmute" : "Mute"}
         </button>
@@ -162,7 +162,7 @@ const Home = () => {
               height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
-              className="rotating-side-logo mx-auto w-1/2"
+              className="rotating-side-logo mx-auto sm:w-1/2 w-3/4"
             />
           </div>
         </section>
