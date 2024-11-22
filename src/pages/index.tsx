@@ -6,6 +6,7 @@ import Marquee from "react-fast-marquee";
 import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css";
 import CalendlyWidget from "./CalendlyWidget";
+import ContactForm from "./ContactForm";
 
 interface CarouselItem {
   src: string;
@@ -313,7 +314,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section className="py-16 text-center">
+        <section className="py-16 text-center border-b border-gray-700">
           <h2 className="text-6xl merch-text font-bold">Tour Dates</h2>
           
           <Link
@@ -323,10 +324,18 @@ const Home = () => {
             Explore
           </Link>
         </section>
-
-        
+        <h2 className="text-6xl mt-8 font-bold merch-text text-center">
+          Book Us
+        </h2>
          {/* Calendly Embed Section */}
         <CalendlyWidget url="https://calendly.com/stagefright" />
+                  
+        <h2 className="text-6xl font-bold merch-text text-center">
+          Contact Us
+        </h2>
+          {/* Contact Form Section */}
+          <ContactForm />
+
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">© 2024 Stage Fright</p>
