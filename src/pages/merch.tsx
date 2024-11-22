@@ -76,7 +76,7 @@ const Merch = () => {
         {/* Navigation and Header */}
         <section>
           <div className="top-8 fixed left-4">
-            <Link href="/" target="_blank">
+            <Link href="/" target="_blank" className="hover:underline">
               Home
             </Link>
           </div>

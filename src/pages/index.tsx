@@ -171,13 +171,13 @@ const Home = () => {
 
         {/* Navigation Links */}
         <nav className="text-center text-xl mt-4">
-          <Link href="/about" className="mx-4">
+          <Link href="/about" className="mx-4 hover:underline">
             About
           </Link>
-          <Link href="/tour" className="mx-4">
+          <Link href="/tour" className="mx-4 hover:underline">
             Tour
           </Link>
-          <Link href="/merch" className="mx-4">
+          <Link href="/merch" className="mx-4 hover:underline">
             Merch
           </Link>
         </nav>

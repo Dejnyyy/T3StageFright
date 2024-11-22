@@ -38,7 +38,7 @@ const About = () => {
       </Head>
       <div className="bg-black text-white min-h-screen fade-in">
       <Link href={"/"}>
-        <h2 className="top-4 left-4 absolute underline">Home</h2>
+        <h2 className="top-4 left-4 fixed hover:underline">Home</h2>
       </Link>
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">

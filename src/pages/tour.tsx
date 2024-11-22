@@ -103,13 +103,13 @@ const Tour = () => {
         {/* Navigation Links */}
         <section>
           <div className="mx-auto w-full text-center text-xl mt-4">
-            <Link href="/" className="mx-4">
+            <Link href="/" className="mx-4 hover:underline">
               Home
             </Link>
-            <Link href="/about" className="mx-4">
+            <Link href="/about" className="mx-4 hover:underline">
               About
             </Link>
-            <Link href="/merch" className="mx-4">
+            <Link href="/merch" className="mx-4 hover:underline">
               Merch
             </Link>
           </div>
@@ -123,7 +123,7 @@ const Tour = () => {
 
         {/* Tour Table */}
         <section className="overflow-x-auto mt-12">
-          <div className="overflow-x-auto table-container mt-32">
+          <div className="overflow-x-auto table-container mt-32 sm:w-3/4 mx-auto">
             <table className="min-w-full table-auto text-white bg-black border-separate border-spacing-y-2">
               <thead>
                 <tr>
