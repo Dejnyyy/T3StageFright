@@ -29,7 +29,7 @@ function ContactForm() {
             id="email"
             type="email"
             name="email"
-            className="mt-1 block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-black focus:border-black"
+            className="mt-1 block w-full px-4 py-2 border text-black rounded-md shadow-sm focus:ring-black focus:border-black"
             required
           />
           <ValidationError
@@ -49,7 +49,7 @@ function ContactForm() {
           <textarea
             id="message"
             name="message"
-            className="mt-1 text-black block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            className="mt-1 text-black block w-full px-4 py-2 border rounded-md shadow-sm focus:ring-black focus:border-black"
             required
           />
           <ValidationError
