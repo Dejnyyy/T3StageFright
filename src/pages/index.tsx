@@ -98,15 +98,15 @@ const Home = () => {
 
   useEffect(() => {
     const savedMuteState = localStorage.getItem("isMuted");
-    if (savedMuteState) {
+    if (savedMuteState !== null) {
       const isMutedFromStorage = JSON.parse(savedMuteState) as boolean;
       setIsMuted(isMutedFromStorage);
+  
       if (audioRef.current) {
         audioRef.current.muted = isMutedFromStorage;
       }
     }
   }, []);
-
   
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -167,7 +167,8 @@ const Home = () => {
       </Head>
       <div className="bg-black text-white">
         {/* Background Music */}
-        <audio ref={audioRef} autoPlay loop>
+        <audio ref={audioRef} autoPlay loop
+         muted={isMuted}>
           <source src="/audio.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
