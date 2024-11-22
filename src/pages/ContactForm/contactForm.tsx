@@ -23,7 +23,7 @@ function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-gray-600"
           >
-            Email Address
+            Your Email
           </label>
           <input
             id="email"
@@ -44,7 +44,7 @@ function ContactForm() {
             htmlFor="message"
             className="block text-sm font-medium text-gray-600"
           >
-            Your Message
+            Message
           </label>
           <textarea
             id="message"

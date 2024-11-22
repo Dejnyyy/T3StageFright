@@ -338,7 +338,7 @@ const Home = () => {
 
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
-          <p className="text-gray-400">© 2024 Stage Fright</p>
+          <p className="text-gray-400">&copy; 2024 Stage Fright</p>
         </footer>
       </div>
     </>
