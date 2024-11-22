@@ -366,13 +366,14 @@ const Home = () => {
         </h2>
          {/* Calendly Embed Section */}
         <CalendlyWidget url="https://calendly.com/stagefright" />
-                  
-        <h2 className="text-6xl font-bold merch-text text-center">
+        <div className="w-full mx-auto border-t border-gray-700"></div>
+
+        <h2 className="text-6xl font-bold merch-text mt-12 text-center">
           Contact Us
         </h2>
+        
           {/* Contact Form Section */}
           <ContactForm />
-
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">&copy; 2024 Stage Fright</p>
