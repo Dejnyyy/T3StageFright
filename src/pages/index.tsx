@@ -24,6 +24,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(true); // Type inferred as boolean
   const [isFadingOut, setIsFadingOut] = useState(false); // Type inferred as boolean
   const [currentIndex, setCurrentIndex] = useState(0); // Type inferred as number
+  const [isPaused, setIsPaused] = useState(false); // Track if autoplay is paused
   const [isTableVisible, setIsTableVisible] = useState(false); // Type inferred as boolean
   const [isMuted, setIsMuted] = useState(false); // Type inferred as boolean
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -103,17 +104,41 @@ const Home = () => {
     }
   }, []);
 
+  
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    if (!isPaused) {
+      autoplayRef.current = setInterval(() => {
+        setCurrentIndex((prevIndex) =>
+          prevIndex < carouselItems.length - 1 ? prevIndex + 1 : 0
+        );
+      }, 3000); // Autoplay interval: 3 seconds
+    }
+
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
+    };
+  }, [isPaused, carouselItems.length]);
   const handlePrev = () => {
+    setIsPaused(true); // Pause autoplay
     setCurrentIndex((prev) =>
       prev > 0 ? prev - 1 : carouselItems.length - 1
     );
   };
 
   const handleNext = () => {
+    setIsPaused(true); // Pause autoplay
     setCurrentIndex((prev) =>
       prev < carouselItems.length - 1 ? prev + 1 : 0
     );
   };
+
+  const handleMouseEnter = () => setIsPaused(true); // Pause autoplay on hover
+  const handleMouseLeave = () => setIsPaused(false); // Resume autoplay on leave
+
 
   if (isLoading) {
     return (
@@ -182,53 +207,60 @@ const Home = () => {
           </Link>
         </nav>
 
-        {/* Merch Section */}
-        <section className="mt-12 text-center">
-          <h1 className="text-6xl font-bold merch-text">Merch</h1>
-          <div className="flex items-center justify-center mt-4">
-            <button
-              onClick={handlePrev}
-              className="arrow bg-transparent text-white text-2xl p-2"
-            >
-              &#10094;
-            </button>
-            <div className="overflow-hidden w-[300px]">
-              <div
-                className="flex transition-transform duration-500"
-                style={{
-                  transform: `translateX(-${currentIndex * 300}px)`,
-                }}
-              >
-                {carouselItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className="min-w-[300px] flex-shrink-0 text-center"
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      width={300}
-                      height={300}
-                      className="hover:scale-110 transition-transform"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <button
-              onClick={handleNext}
-              className="arrow bg-transparent text-white text-2xl p-2"
-            >
-              &#10095;
-            </button>
-          </div>
-          <Link
-            href="/merch"
-            className="bg-white text-black rounded-full py-2 px-4 mt-4 inline-block hover:bg-gray-300"
+        <section className="mt-12 text-center" >
+  <h1 className="text-6xl font-bold merch-text">Merch</h1>
+  <div className="flex items-center justify-center mt-4">
+    {/* Previous Button */}
+    <button
+      onClick={handlePrev}
+      className="arrow bg-transparent text-white text-2xl p-2"
+    >
+      &#10094;
+    </button>
+
+    {/* Carousel Items */}
+    <div className="overflow-hidden w-[300px]"onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}>
+      <div
+        className="flex transition-transform duration-500"
+        style={{
+          transform: `translateX(-${currentIndex * 300}px)`,
+        }}
+      >
+        {carouselItems.map((item, index) => (
+          <div
+            key={index}
+            className="min-w-[300px] flex-shrink-0 text-center"
           >
-            View More
-          </Link>
-        </section>
+            <Image
+              src={item.src}
+              alt={item.alt}
+              width={300}
+              height={300}
+              className="hover:scale-110 transition-transform"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Next Button */}
+    <button
+      onClick={handleNext}
+      className="arrow bg-transparent text-white text-2xl p-2"
+    >
+      &#10095;
+    </button>
+  </div>
+
+  <Link
+    href="/merch"
+    className="bg-white text-black rounded-full py-2 px-4 mt-4 inline-block hover:bg-gray-300"
+  >
+    View More
+  </Link>
+</section>
+
 
         {/* Tour Table */}
         <section className="mt-12 text-center">
