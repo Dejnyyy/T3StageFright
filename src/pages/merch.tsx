@@ -61,7 +61,7 @@ const Merch = () => {
       </Head>
       <div className="bg-black text-white min-h-screen">
         {/* Rotating Logo */}
-        <section className="w-full mx-auto mt-4 text-center">
+        <section className="w-full mx-auto mt-12 text-center">
           <div className="perspective">
             <Image
               width={300}
@@ -80,6 +80,7 @@ const Merch = () => {
               Home
             </Link>
           </div>
+          
           {/* Marquee */}
           <Link href="/tour">
             <div className="fixed top-0 w-full z-40 bg-black">
@@ -92,10 +93,23 @@ const Merch = () => {
               </Marquee>
             </div>
           </Link>
+           {/* Navigation Links */}
+        <nav className="text-center text-xl mt-4">
+          <Link href="/" className="mx-4 hover:underline">
+            Home
+          </Link>
+          <Link href="/tour" className="mx-4 hover:underline">
+            Tour
+          </Link>
+          <Link href="/about" className="mx-4 hover:underline">
+            About
+          </Link>
+        </nav>
           <h1 className="text-center text-6xl font-bold mt-10 bg-clip-text text-transparent bg-center bg-cover">
             Merch
           </h1>
         </section>
+        
 
         {/* Products Section */}
         <section>
@@ -104,7 +118,7 @@ const Merch = () => {
               {products.map((product, index) => (
                 <div
                   key={index}
-                  className="border border-white shadow-md shadow-white rounded-lg flex flex-col bg-black p-4 h-full"
+                  className="border border-white hover:shadow-md hover:shadow-white transition duration-200 rounded-lg flex flex-col bg-black p-4 h-full"
                 >
                   {/* Product Image */}
                   <Link href={product.image} target="_blank">
