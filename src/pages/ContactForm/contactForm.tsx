@@ -16,7 +16,7 @@ function ContactForm() {
     <div className="mt-12 flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-lg shadow-md w-full max-w-md space-y-6"
+        className="bg-white p-6 rounded-xl shadow-md w-full max-w-md space-y-6"
       >
         <div>
           <label
