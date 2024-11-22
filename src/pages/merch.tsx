@@ -47,6 +47,24 @@ const Merch = () => {
         image: "/blacktee.png",
         link: "/checkout?product=StageFright%20Black%20Tee&price=20&image=/blacktee.png",
       },
+      {
+        name: "StageFright SF Black Tee",
+        price: 20,
+        image: "/sfblacktee.png",
+        link: "/checkout?product=StageFright%20SF%20Black%20Tee&price=20&image=/sfblacktee.png",
+      },
+      {
+        name: "StageFright SF  Tee",
+        price: 20,
+        image: "/sftee.png",
+        link: "/checkout?product=StageFright%20SF%20Tee&price=20&image=/sftee.png",
+      },
+      {
+        name: "StageFright SF Black Hoodie",
+        price: 40,
+        image: "/sfblackhoodie.png",
+        link: "/checkout?product=StageFright%20SF%20%Black%20Hoodie&price=40&image=/sfblackhoodie.png",
+      },
   ];
 
   useEffect(() => {
@@ -93,12 +111,6 @@ const Merch = () => {
 
         {/* Navigation and Header */}
         <section>
-          <div className="top-8 fixed left-4">
-            <Link href="/" target="_blank" className="hover:underline">
-              Home
-            </Link>
-          </div>
-          
           {/* Marquee */}
           <Link href="/tour">
             <div className="fixed top-0 w-full z-40 bg-black">
