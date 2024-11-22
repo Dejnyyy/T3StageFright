@@ -48,7 +48,7 @@ const Checkout = () => {
     <div className="bg-black text-white min-h-screen flex flex-col items-center p-8">
     
       <Link href="/">
-      <h2 className="absolute top-4 left-4">Back</h2>
+      <h2 className="fixed top-4 left-4 hover:underline">Back</h2>
       </Link>
     
       <h1 className="text-center mb-4 text-7xl mt-10 bg-clip-text text-transparent bg-center bg-cover">
