@@ -128,7 +128,6 @@ const Home = () => {
       startAutoplay();
     }
 
-    // Cleanup interval when component unmounts or isPaused changes
     return () => {
       if (autoplayRef.current) {
         clearInterval(autoplayRef.current);
@@ -220,6 +219,17 @@ const Home = () => {
             Merch
           </Link>
         </nav>
+        <div className="text-center text-xl mt-4">
+  <button
+    className="mx-4 hover:underline cursor-pointer text-white bg-transparent border-none"
+    onClick={() => {
+      document.getElementById("contactus")?.scrollIntoView({ behavior: "smooth" });
+    }}
+  >
+    Contact Us
+  </button>
+</div>
+
 
         <section className="mt-12 text-center" >
   <h1 className="text-6xl font-bold merch-text">Merch</h1>
@@ -377,7 +387,7 @@ const Home = () => {
         <CalendlyWidget url="https://calendly.com/stagefright" />
         <div className="w-full mx-auto border-t border-gray-700"></div>
 
-        <h2 className="text-6xl font-bold merch-text mt-12 text-center">
+        <h2 className="text-6xl font-bold merch-text mt-12 text-center" id="contactus">
           Contact Us
         </h2>
         
