@@ -33,6 +33,9 @@ const Home = () => {
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
     { src: "/merch.png", alt: "StageFright Tee" },
+    { src: "/blackhoodie.png", alt: "StageFright Black Hoodie" },
+    { src: "/blackcap.png", alt: "StageFright Black Cap" },
+    { src: "/blacktee.png", alt: "StageFright Black Tee" },
   ];
 
   const tourData: TourData[] = [

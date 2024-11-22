@@ -29,6 +29,24 @@ const Merch = () => {
       image: "/merch.png",
       link: "/checkout?product=StageFright%20Tee&price=20&image=/merch.png",
     },
+    {
+        name: "StageFright Black Hoodie",
+        price: 40,
+        image: "/blackhoodie.png",
+        link: "/checkout?product=StageFright%20Black%Cap&price=40&image=/blackhoodie.png",
+      },
+    {
+        name: "StageFright Black Cap",
+        price: 15,
+        image: "/blackcap.png",
+        link: "/checkout?product=StageFright%20Black%Cap&price=15&image=/blackcap.png",
+      },
+    {
+        name: "StageFright Black Tee",
+        price: 20,
+        image: "/blacktee.png",
+        link: "/checkout?product=StageFright%20Black%20Tee&price=20&image=/blacktee.png",
+      },
   ];
 
   useEffect(() => {
@@ -147,6 +165,10 @@ const Merch = () => {
             </div>
           </div>
         </section>
+        {/* Footer */}
+        <footer className="bg-black py-6 text-center">
+          <p className="text-gray-400">&copy; 2024 Stage Fright</p>
+        </footer>
       </div>
 
       {/* Inline Styles */}
