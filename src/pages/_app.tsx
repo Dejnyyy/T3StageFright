@@ -18,11 +18,11 @@ const MyApp: AppType = ({ Component, pageProps }) => {
     
     <PayPalScriptProvider options={initialPayPalOptions}>
       <div className={GeistSans.className}>
-      <Head>
       <Script
           src="https://assets.calendly.com/assets/external/widget.js"
           strategy="beforeInteractive"
         />
+      <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <Component {...pageProps} />
