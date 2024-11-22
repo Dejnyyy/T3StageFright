@@ -5,6 +5,7 @@ import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css";
+import CalendlyWidget from "./CalendlyWidget";
 
 interface CarouselItem {
   src: string;
@@ -323,11 +324,13 @@ const Home = () => {
           </Link>
         </section>
 
+        
+         {/* Calendly Embed Section */}
+        <CalendlyWidget url="https://calendly.com/stagefright" />
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">© 2024 Stage Fright</p>
         </footer>
-        
       </div>
     </>
   );
