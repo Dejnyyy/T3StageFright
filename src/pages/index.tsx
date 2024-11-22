@@ -21,12 +21,12 @@ interface TourData {
 }
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true); // Type inferred as boolean
-  const [isFadingOut, setIsFadingOut] = useState(false); // Type inferred as boolean
-  const [currentIndex, setCurrentIndex] = useState(0); // Type inferred as number
-  const [isPaused, setIsPaused] = useState(false); // Track if autoplay is paused
-  const [isTableVisible, setIsTableVisible] = useState(false); // Type inferred as boolean
-  const [isMuted, setIsMuted] = useState(false); // Type inferred as boolean
+  const [isLoading, setIsLoading] = useState(true); 
+  const [isFadingOut, setIsFadingOut] = useState(false); 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [isTableVisible, setIsTableVisible] = useState(false); 
+  const [isMuted, setIsMuted] = useState(false); 
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const carouselItems: CarouselItem[] = [
@@ -113,7 +113,7 @@ const Home = () => {
         setCurrentIndex((prevIndex) =>
           prevIndex < carouselItems.length - 1 ? prevIndex + 1 : 0
         );
-      }, 3000); // Autoplay interval: 3 seconds
+      }, 3000);
     }
 
     return () => {
@@ -123,23 +123,22 @@ const Home = () => {
     };
   }, [isPaused, carouselItems.length]);
   const handlePrev = () => {
-    setIsPaused(true); // Pause autoplay
+    setIsPaused(true);
     setCurrentIndex((prev) =>
       prev > 0 ? prev - 1 : carouselItems.length - 1
     );
   };
 
   const handleNext = () => {
-    setIsPaused(true); // Pause autoplay
+    setIsPaused(true);
     setCurrentIndex((prev) =>
       prev < carouselItems.length - 1 ? prev + 1 : 0
     );
   };
 
-  const handleMouseEnter = () => setIsPaused(true); // Pause autoplay on hover
-  const handleMouseLeave = () => setIsPaused(false); // Resume autoplay on leave
-
-
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false); 
+  
   if (isLoading) {
     return (
       <div
