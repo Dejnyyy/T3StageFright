@@ -43,7 +43,7 @@ const Home = () => {
 
   const tourData: TourData[] = [
     {
-      date: "December 10",
+      date: "November 16-17",
       city: "Las Vegas, NV",
       venue: "ComplexCon",
       tickets: "/checkout?product=Ticket%20LasVegas&price=50&image=/bg.png",
@@ -249,8 +249,8 @@ const Home = () => {
 
 
         {/* Tour Table */}
-        <section className="mt-12 text-center">
-          <h1 className="text-6xl font-bold merch-text">Tour Tickets</h1>
+        <section className="mt-12">
+          <h1 className="text-6xl font-bold text-center merch-text">Tour Tickets</h1>
           <div
             id="tour-table"
             className={`transition-opacity duration-700 md:w-3/4 mx-auto ${
