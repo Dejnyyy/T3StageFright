@@ -47,7 +47,7 @@ const Checkout = () => {
   return (
     <div className="bg-black text-white min-h-screen flex flex-col items-center p-8">
     
-      <Link href="/">
+      <Link href="/merch">
       <h2 className="fixed top-4 left-4 hover:underline">Back</h2>
       </Link>
     

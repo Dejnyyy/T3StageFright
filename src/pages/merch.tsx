@@ -33,13 +33,13 @@ const Merch = () => {
         name: "StageFright Black Hoodie",
         price: 40,
         image: "/blackhoodie.png",
-        link: "/checkout?product=StageFright%20Black%Cap&price=40&image=/blackhoodie.png",
+        link: "/checkout?product=StageFright%20Black%20Hoodie&price=40&image=/blackhoodie.png",
       },
     {
         name: "StageFright Black Cap",
         price: 15,
         image: "/blackcap.png",
-        link: "/checkout?product=StageFright%20Black%Cap&price=15&image=/blackcap.png",
+        link: "/checkout?product=StageFright%20Black%20Cap&price=15&image=/blackcap.png",
       },
     {
         name: "StageFright Black Tee",
@@ -63,7 +63,7 @@ const Merch = () => {
         name: "StageFright SF Black Hoodie",
         price: 40,
         image: "/sfblackhoodie.png",
-        link: "/checkout?product=StageFright%20SF%20%Black%20Hoodie&price=40&image=/sfblackhoodie.png",
+        link: "/checkout?product=StageFright%20SF%20Black%20Hoodie&price=40&image=/sfblackhoodie.png",
       },
   ];
 
