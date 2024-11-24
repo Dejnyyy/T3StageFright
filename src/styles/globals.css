@@ -4,6 +4,39 @@
 
 body {
   background-color: black;
+  
+}
+th::selection{
+  color: black;
+  background-color: white;
+}
+td::selection{
+  color: black;
+  background-color: white;
+}
+img::selection{
+  color: black;
+  background-color: white;
+}
+button::selection{
+  color: black;
+  background-color: white;
+}
+p::selection{
+  color: black;
+  background-color: white;
+}
+a::selection{
+  color: black;
+  background-color: white;
+}
+Link::selection{
+  color: black;
+  background-color: white;
+}
+h3::selection{
+  color: black;
+  background-color: white;
 }
 .perspective {
     perspective: 1000px; /* Adjust to enhance the 3D depth effect */
