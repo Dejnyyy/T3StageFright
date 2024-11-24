@@ -37,14 +37,8 @@ const About = () => {
         <title>Stage Fright - About</title>
       </Head>
       <div className="bg-black text-white min-h-screen fade-in">
-      
-        {/* Hero Section */}
-        <section className="text-center py-16 border-b border-gray-700">
-          <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-            About Us
-          </h1>
-          {/* Rotating Logo */}
-          <div className="perspective">
+       {/* Rotating Logo */}
+       <div className="perspective">
             <Image
               width={300}
               height={300}
@@ -53,7 +47,6 @@ const About = () => {
               className="rotating-side-logo mx-auto w-1/2"
             />
           </div>
-          <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
           {/* Navigation Links */}
           <nav className="text-center text-xl mt-4">
           <Link href="/" className="mx-4 hover:underline">
@@ -66,6 +59,14 @@ const About = () => {
             Merch
           </Link>
         </nav>
+        {/* Hero Section */}
+        <section className="text-center py-16 border-b border-gray-700">
+          <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+            About Us
+          </h1>
+         
+          <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
+          
         </section>
 
         {/* About Section */}
