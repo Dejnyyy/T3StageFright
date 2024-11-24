@@ -339,7 +339,7 @@ const Home = () => {
 
   <div className="flex flex-wrap justify-center mt-8 gap-8">
     {/* Song 1 */}
-    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+    <div className="w-64 bg-black border hover:shadow-md hover:shadow-white duration-500 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
       <Image
         src="/vibesunleashed.webp"
         alt="Song 1 Album Cover"
@@ -361,7 +361,7 @@ const Home = () => {
     </div>
 
     {/* Song 2 */}
-    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+    <div className="w-64 bg-black border hover:shadow-md hover:shadow-white border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
       <Image
         src="/heartbeathigh.webp"
         alt="Song 2 Album Cover"
@@ -383,7 +383,7 @@ const Home = () => {
     </div>
 
     {/* Song 3 */}
-    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+    <div className="w-64 bg-black border hover:shadow-md hover:shadow-white border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
       <Image
         src="/liveenergy.webp"
         alt="Song 3 Album Cover"
