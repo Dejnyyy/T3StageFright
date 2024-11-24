@@ -348,7 +348,7 @@ const Home = () => {
         className="rounded-t-lg"
       />
       <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">"Rock Anthem"</h3>
+        <h3 className="text-2xl font-bold text-white">&quot;Rock Anthem&quot;</h3>
         <p className="text-gray-400 italic mt-2">From the album: Vibes Unleashed</p>
         <audio
           controls
@@ -370,7 +370,7 @@ const Home = () => {
         className="rounded-t-lg"
       />
       <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">"Electric Pulse"</h3>
+        <h3 className="text-2xl font-bold text-white">&quot;Electric Pulse&quot;</h3>
         <p className="text-gray-400 italic mt-2">From the album: Heartbeat High</p>
         <audio
           controls
@@ -392,7 +392,7 @@ const Home = () => {
         className="rounded-t-lg"
       />
       <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">"Stage Rush"</h3>
+        <h3 className="text-2xl font-bold text-white">&quot;Stage Rush&quot;</h3>
         <p className="text-gray-400 italic mt-2">From the album: Live Energy SF</p>
         <audio
           controls
