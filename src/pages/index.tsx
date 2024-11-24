@@ -341,7 +341,7 @@ const Home = () => {
     {/* Song 1 */}
     <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
       <Image
-        src="/album1.png"
+        src="/vibesunleashed.webp"
         alt="Song 1 Album Cover"
         width={256}
         height={256}
@@ -354,7 +354,7 @@ const Home = () => {
           controls
           className="mt-4 w-full bg-black text-white rounded-full"
         >
-          <source src="/songs/rock-anthem.mp3" type="audio/mpeg" />
+          <source src="/audio.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
@@ -363,7 +363,7 @@ const Home = () => {
     {/* Song 2 */}
     <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
       <Image
-        src="/album2.png"
+        src="/heartbeathigh.webp"
         alt="Song 2 Album Cover"
         width={256}
         height={256}
@@ -376,7 +376,7 @@ const Home = () => {
           controls
           className="mt-4 w-full bg-black text-white rounded-full"
         >
-          <source src="/songs/electric-pulse.mp3" type="audio/mpeg" />
+          <source src="/audio2.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
@@ -385,7 +385,7 @@ const Home = () => {
     {/* Song 3 */}
     <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
       <Image
-        src="/album3.png"
+        src="/liveenergy.webp"
         alt="Song 3 Album Cover"
         width={256}
         height={256}
@@ -398,7 +398,7 @@ const Home = () => {
           controls
           className="mt-4 w-full bg-black text-white rounded-full"
         >
-          <source src="/audio.mp3" type="audio/mpeg" />
+          <source src="/audio3.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
       </div>
