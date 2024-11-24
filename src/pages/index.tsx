@@ -26,9 +26,7 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isTableVisible, setIsTableVisible] = useState(false); 
-  const [isMuted, setIsMuted] = useState(false); 
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
+ 
   const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
@@ -92,27 +90,6 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMute = () => {
-    if (audioRef.current) {
-      const newMutedState = !audioRef.current.muted;
-      audioRef.current.muted = newMutedState;
-      setIsMuted(newMutedState);
-      localStorage.setItem("isMuted", JSON.stringify(newMutedState));
-    }
-  };
-
-  useEffect(() => {
-    const savedMuteState = localStorage.getItem("isMuted");
-    if (savedMuteState !== null) {
-      const isMutedFromStorage = JSON.parse(savedMuteState) as boolean;
-      setIsMuted(isMutedFromStorage);
-  
-      if (audioRef.current) {
-        audioRef.current.muted = isMutedFromStorage;
-      }
-    }
-  }, []);
-  
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
@@ -170,21 +147,6 @@ const Home = () => {
         <title>Stage Fright</title>
       </Head>
       <div className="bg-black text-white">
-        {/* Background Music */}
-        <audio ref={audioRef} autoPlay loop
-         muted={isMuted}>
-          <source src="/audio.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-
-        {/* Mute Button */}
-        <button
-          onClick={toggleMute}
-          className="fixed top-36 md:top-12 right-4 bg-white text-black text-md sm:text-lg  px-2 sm:px-4 py-1 sm:py-2 rounded-full z-40 shadow-md hover:bg-gray-300 transition"
-        >
-          {isMuted ? "Unmute" : "Mute"}
-        </button>
-
         {/* Marquee */}
         <Link href="/tour">
           <div className="fixed top-0 w-full z-40 bg-black">
