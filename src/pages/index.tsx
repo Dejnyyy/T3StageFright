@@ -334,7 +334,7 @@ const Home = () => {
         <section className="py-16 text-center border-b border-gray-700">
   <h2 className="text-6xl merch-text font-bold">Our Songs</h2>
   <p className="text-gray-300 mt-4 text-lg italic">
-    Experience the sound of Stage Fright – electrifying, raw, and unforgettable!
+    Experience the sound of Stage Fright - electrifying, raw, and unforgettable!
   </p>
 
   <div className="flex flex-wrap justify-center mt-8 gap-8">
@@ -393,7 +393,7 @@ const Home = () => {
       />
       <div className="p-4">
         <h3 className="text-2xl font-bold text-white">"Stage Rush"</h3>
-        <p className="text-gray-400 italic mt-2">From the album: Live Energy</p>
+        <p className="text-gray-400 italic mt-2">From the album: Live Energy SF</p>
         <audio
           controls
           className="mt-4 w-full bg-black text-white rounded-full"
@@ -406,16 +406,6 @@ const Home = () => {
   </div>
 </section>
 
-        <section className="py-16 text-center border-b border-gray-700">
-          <h2 className="text-6xl merch-text font-bold">Tour Dates</h2>
-          
-          <Link
-            href="/tour"
-            className="inline-block mt-8 px-4 py-2 bg-white text-black text-lg rounded-full shadow-md hover:bg-gray-300 transition"
-          >
-            Explore
-          </Link>
-        </section>
         <h2 className="text-6xl mt-8 font-bold merch-text text-center">
           Book Us
         </h2>
