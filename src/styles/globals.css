@@ -8,6 +8,9 @@ body {
 }
 
 /* Selection Styling */
+Link > *::selection,
+marquee::selection,
+Marquee::selection,
 th::selection,
 td::selection,
 img::selection,
