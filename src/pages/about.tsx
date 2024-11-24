@@ -37,9 +37,7 @@ const About = () => {
         <title>Stage Fright - About</title>
       </Head>
       <div className="bg-black text-white min-h-screen fade-in">
-      <Link href={"/"}>
-        <h2 className="top-4 left-4 fixed hover:underline">Home</h2>
-      </Link>
+      
         {/* Hero Section */}
         <section className="text-center py-16 border-b border-gray-700">
           <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
@@ -56,6 +54,18 @@ const About = () => {
             />
           </div>
           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
+          {/* Navigation Links */}
+          <nav className="text-center text-xl mt-4">
+          <Link href="/" className="mx-4 hover:underline">
+            Home
+          </Link>
+          <Link href="/tour" className="mx-4 hover:underline">
+            Tour
+          </Link>
+          <Link href="/merch" className="mx-4 hover:underline">
+            Merch
+          </Link>
+        </nav>
         </section>
 
         {/* About Section */}
@@ -90,7 +100,7 @@ const About = () => {
 
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
-          <p className="text-gray-400">© 2024 Stage Fright</p>
+          <p className="text-gray-400">&copy; 2024 Stage Fright</p>
         </footer>
       </div>
     </>
