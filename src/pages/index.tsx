@@ -331,6 +331,80 @@ const Home = () => {
             </p>
           </div>
         </section>
+        <section className="py-16 text-center border-b border-gray-700">
+  <h2 className="text-6xl merch-text font-bold">Our Songs</h2>
+  <p className="text-gray-300 mt-4 text-lg italic">
+    Experience the sound of Stage Fright – electrifying, raw, and unforgettable!
+  </p>
+
+  <div className="flex flex-wrap justify-center mt-8 gap-8">
+    {/* Song 1 */}
+    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+      <Image
+        src="/album1.png"
+        alt="Song 1 Album Cover"
+        width={256}
+        height={256}
+        className="rounded-t-lg"
+      />
+      <div className="p-4">
+        <h3 className="text-2xl font-bold text-white">"Rock Anthem"</h3>
+        <p className="text-gray-400 italic mt-2">From the album: Vibes Unleashed</p>
+        <audio
+          controls
+          className="mt-4 w-full bg-black text-white rounded-full"
+        >
+          <source src="/songs/rock-anthem.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    {/* Song 2 */}
+    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+      <Image
+        src="/album2.png"
+        alt="Song 2 Album Cover"
+        width={256}
+        height={256}
+        className="rounded-t-lg"
+      />
+      <div className="p-4">
+        <h3 className="text-2xl font-bold text-white">"Electric Pulse"</h3>
+        <p className="text-gray-400 italic mt-2">From the album: Heartbeat High</p>
+        <audio
+          controls
+          className="mt-4 w-full bg-black text-white rounded-full"
+        >
+          <source src="/songs/electric-pulse.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    {/* Song 3 */}
+    <div className="w-64 bg-black border border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-transform">
+      <Image
+        src="/album3.png"
+        alt="Song 3 Album Cover"
+        width={256}
+        height={256}
+        className="rounded-t-lg"
+      />
+      <div className="p-4">
+        <h3 className="text-2xl font-bold text-white">"Stage Rush"</h3>
+        <p className="text-gray-400 italic mt-2">From the album: Live Energy</p>
+        <audio
+          controls
+          className="mt-4 w-full bg-black text-white rounded-full"
+        >
+          <source src="/audio.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
 
         <section className="py-16 text-center border-b border-gray-700">
           <h2 className="text-6xl merch-text font-bold">Tour Dates</h2>
