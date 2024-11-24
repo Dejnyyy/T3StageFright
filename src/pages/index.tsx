@@ -343,8 +343,8 @@ const Home = () => {
       <Image
         src="/vibesunleashed.webp"
         alt="Song 1 Album Cover"
-        width={256}
-        height={256}
+        width={300}
+        height={300}
         className="rounded-t-lg"
       />
       <div className="p-4">
@@ -365,8 +365,8 @@ const Home = () => {
       <Image
         src="/heartbeathigh.webp"
         alt="Song 2 Album Cover"
-        width={256}
-        height={256}
+        width={300}
+        height={300}
         className="rounded-t-lg"
       />
       <div className="p-4">
@@ -387,8 +387,8 @@ const Home = () => {
       <Image
         src="/liveenergy.webp"
         alt="Song 3 Album Cover"
-        width={256}
-        height={256}
+        width={300}
+        height={300}
         className="rounded-t-lg"
       />
       <div className="p-4">
