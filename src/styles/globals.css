@@ -2,93 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* General Styles */
 body {
   background-color: black;
-  
 }
-th::selection{
+
+/* Selection Styling */
+th::selection,
+td::selection,
+img::selection,
+button::selection,
+p::selection,
+a::selection,
+Link::selection,
+h3::selection {
   color: black;
   background-color: white;
 }
-td::selection{
-  color: black;
-  background-color: white;
-}
-img::selection{
-  color: black;
-  background-color: white;
-}
-button::selection{
-  color: black;
-  background-color: white;
-}
-p::selection{
-  color: black;
-  background-color: white;
-}
-a::selection{
-  color: black;
-  background-color: white;
-}
-Link::selection{
-  color: black;
-  background-color: white;
-}
-h3::selection{
-  color: black;
-  background-color: white;
-}
+
+/* Perspective and Animation */
 .perspective {
-    perspective: 1000px; /* Adjust to enhance the 3D depth effect */
-  }
-  
-  @keyframes rotateSide {
-    0% {
-      transform: rotateY(0deg);
-    }
-    50% {
-      transform: rotateY(90deg); /* Rotate halfway, showing the side */
-    }
-    100% {
-      transform: rotateY(0deg); /* Return to the front */
-    }
-  }
+  perspective: 1000px;
+}
 
-    
-  
+.rotating-side-logo {
+  animation: rotateSide 5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
 
-  .rotating-side-logo {
-    animation: rotateSide 5s ease-in-out infinite; /* Smooth tilting effect */
-    transform-style: preserve-3d; /* Keep the 3D perspective */
+@keyframes rotateSide {
+  0%, 100% {
+    transform: rotateY(0deg);
   }
-  
-  .merch-text {
-    background: url('/background.webp') center center / cover no-repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  50% {
+    transform: rotateY(90deg);
   }
-  .animate-scroll {
-    display: inline-block; /* Ensures the text stays in one line */
-    animation: scroll 10s linear infinite; /* Scrolls continuously */
-    white-space: nowrap; /* Prevents text wrapping */
-  }
-  .fade-out {
+}
+
+/* Merch Text with Background */
+.merch-text {
+  background: url('/background.webp') center / cover no-repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animate Scroll */
+.animate-scroll {
+  display: inline-block;
+  animation: scroll 10s linear infinite;
+  white-space: nowrap;
+}
+
+/* Fade Animations */
+.fade-out {
+  opacity: 1;
+  transition: opacity 1s ease-out;
+}
+
+.fade-out-active {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  to {
     opacity: 1;
-    transition: opacity 1s ease-out; /* Fade-out transition */
   }
-  
-  .fade-out-active {
-    opacity: 0; /* Fully transparent */
-  }
-  
-  .fade-in {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards; /* Fade-in transition */
-  }
-  
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-  
+}
