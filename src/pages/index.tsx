@@ -26,7 +26,10 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isTableVisible, setIsTableVisible] = useState(false); 
- 
+  const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
+    null
+  );
+
   const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
@@ -67,6 +70,14 @@ const Home = () => {
       tickets: "/checkout?product=Ticket%20Hunington&price=50&image=/bg.png",
     },
   ];
+
+  const handlePlay = (audio: HTMLAudioElement) => {
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+    }
+    setCurrentAudio(audio);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -332,79 +343,88 @@ const Home = () => {
           </div>
         </section>
         <section className="py-16 text-center border-b border-gray-700">
-  <h2 className="text-6xl merch-text font-bold">Our Songs</h2>
-  <p className="text-gray-300 mt-4 text-lg italic">
-    Experience the sound of Stage Fright - electrifying, raw, and unforgettable!
-  </p>
+          <h2 className="text-6xl merch-text font-bold">Our Songs</h2>
+          <p className="text-gray-300 mt-4 text-lg italic">
+            Experience the sound of Stage Fright - electrifying, raw, and unforgettable!
+          </p>
 
-  <div className="flex flex-wrap justify-center mt-8 gap-8">
-    {/* Song 1 */}
-    <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
-      <Image
-        src="/vibesunleashed.webp"
-        alt="Song 1 Album Cover"
-        width={300}
-        height={300}
-        className="rounded-t-lg"
-      />
-      <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">&quot;Rock Anthem&quot;</h3>
-        <p className="text-gray-400 italic mt-2">From the album: Vibes Unleashed</p>
-        <audio
-          controls
-          className="mt-4 w-full bg-black text-white rounded-full"
-        >
-          <source src="/audio.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
+          <div className="flex flex-wrap justify-center mt-8 gap-8">
+            {/* Song 1 */}
+            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+              <Image
+                src="/vibesunleashed.webp"
+                alt="Song 1 Album Cover"
+                width={300}
+                height={300}
+                className="rounded-t-lg"
+              />
+              <div className="p-4">
+                <h3 className="text-2xl font-bold text-white">&quot;Rock Anthem&quot;</h3>
+                <p className="text-gray-400 italic mt-2">
+                  From the album: Vibes Unleashed
+                </p>
+                <audio
+                  controls
+                  className="mt-4 w-full bg-black text-white rounded-full"
+                  onPlay={(e) => handlePlay(e.currentTarget)}
+                >
+                  <source src="/audio.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
 
-    {/* Song 2 */}
-    <div className="w-64 bg-black border hover:shadow-white border-gray-700 duration-300 ease-in-out rounded-lg shadow-lg hover:scale-105 transition-all">
-      <Image
-        src="/heartbeathigh.webp"
-        alt="Song 2 Album Cover"
-        width={300}
-        height={300}
-        className="rounded-t-lg"
-      />
-      <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">&quot;Electric Pulse&quot;</h3>
-        <p className="text-gray-400 italic mt-2">From the album: Heartbeat High</p>
-        <audio
-          controls
-          className="mt-4 w-full bg-black text-white rounded-full"
-        >
-          <source src="/audio2.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
+            {/* Song 2 */}
+            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+              <Image
+                src="/heartbeathigh.webp"
+                alt="Song 2 Album Cover"
+                width={300}
+                height={300}
+                className="rounded-t-lg"
+              />
+              <div className="p-4">
+                <h3 className="text-2xl font-bold text-white">&quot;Electric Pulse&quot;</h3>
+                <p className="text-gray-400 italic mt-2">
+                  From the album: Heartbeat High
+                </p>
+                <audio
+                  controls
+                  className="mt-4 w-full bg-black text-white rounded-full"
+                  onPlay={(e) => handlePlay(e.currentTarget)}
+                >
+                  <source src="/audio2.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
 
-    {/* Song 3 */}
-    <div className="w-64 bg-black border hover:shadow-white border-gray-700 duration-300 ease-in-out rounded-lg shadow-lg hover:scale-105 transition-all">
-      <Image
-        src="/liveenergy.webp"
-        alt="Song 3 Album Cover"
-        width={300}
-        height={300}
-        className="rounded-t-lg"
-      />
-      <div className="p-4">
-        <h3 className="text-2xl font-bold text-white">&quot;Stage Rush&quot;</h3>
-        <p className="text-gray-400 italic mt-2">From the album: Live Energy SF</p>
-        <audio
-          controls
-          className="mt-4 w-full bg-black text-white rounded-full"
-        >
-          <source src="/audio3.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
-  </div>
-</section>
+            {/* Song 3 */}
+            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+              <Image
+                src="/liveenergy.webp"
+                alt="Song 3 Album Cover"
+                width={300}
+                height={300}
+                className="rounded-t-lg"
+              />
+              <div className="p-4">
+                <h3 className="text-2xl font-bold text-white">&quot;Stage Rush&quot;</h3>
+                <p className="text-gray-400 italic mt-2">
+                  From the album: Live Energy SF
+                </p>
+                <audio
+                  controls
+                  className="mt-4 w-full bg-black text-white rounded-full"
+                  onPlay={(e) => handlePlay(e.currentTarget)}
+                >
+                  <source src="/audio3.mp3" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <h2 className="text-6xl mt-8 font-bold merch-text text-center">
           Book Us
