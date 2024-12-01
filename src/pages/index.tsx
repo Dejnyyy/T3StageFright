@@ -29,6 +29,8 @@ const Home = () => {
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
     null
   );
+  const [isDarkMode, setIsDarkMode] = useState(true); // State for theme toggle
+
 
   const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
@@ -157,6 +159,7 @@ const Home = () => {
       <Head>
         <title>Stage Fright</title>
       </Head>
+      
       <div className="bg-black text-white">
         {/* Marquee */}
         <Link href="/tour">
@@ -168,7 +171,7 @@ const Home = () => {
         </Link>
 
         {/* Rotating Logo */}
-        <section className="w-full mx-auto pt-8 text-center">
+        <section className="w-full mx-auto pt-12 text-center">
           <div className="perspective">
             <Image
               width={300}
