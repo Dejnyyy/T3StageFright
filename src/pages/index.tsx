@@ -7,6 +7,7 @@ import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css";
 import CalendlyWidget from "./CalendlyWidget";
 import ContactForm from "./ContactForm";
+import Carousel from "./Carousel";
 
 interface CarouselItem {
   src: string;
@@ -206,60 +207,8 @@ const Home = () => {
   </button>
 </div>
 
-
-        <section className="mt-12 text-center" >
-  <h1 className="text-6xl font-bold merch-text">Merch</h1>
-  <div className="flex items-center justify-center mt-4">
-    {/* Previous Button */}
-    <button
-      onClick={handlePrev}
-      className="arrow bg-transparent text-white text-2xl p-2"
-    >
-      &#10094;
-    </button>
-
-    {/* Carousel Items */}
-    <div className="overflow-hidden w-[300px]"onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}>
-      <div
-        className="flex transition-transform duration-500"
-        style={{
-          transform: `translateX(-${currentIndex * 300}px)`,
-        }}
-      >
-        {carouselItems.map((item, index) => (
-          <div
-            key={index}
-            className="min-w-[300px] flex-shrink-0 text-center"
-          >
-            <Image
-              src={item.src}
-              alt={item.alt}
-              width={300}
-              height={300}
-              className="hover:scale-110 transition-transform"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Next Button */}
-    <button
-      onClick={handleNext}
-      className="arrow bg-transparent text-white text-2xl p-2"
-    >
-      &#10095;
-    </button>
-  </div>
-
-  <Link
-    href="/merch"
-    className="bg-white text-black rounded-full py-2 px-4 mt-4 inline-block hover:bg-gray-300"
-  >
-    View More
-  </Link>
-</section>
+        {/* Carousel Section */}
+        <Carousel />
 
 
         {/* Tour Table */}
