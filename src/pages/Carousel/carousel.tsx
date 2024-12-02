@@ -9,13 +9,13 @@ interface CarouselItem {
 }
 
 const Carousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(1); // Start at 1 because of the cloned first item
-  const [isAnimating, setIsAnimating] = useState(false); // Prevent rapid clicks during transition
+  const [currentIndex, setCurrentIndex] = useState(0); // Start with the first item
   const [isPaused, setIsPaused] = useState(false); // Pause autoplay on hover or interaction
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Array of items to display in the carousel
-  const originalItems: CarouselItem[] = [
+  const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
     { src: "/merch.png", alt: "StageFright Tee" },
@@ -27,21 +27,18 @@ const Carousel: React.FC = () => {
     { src: "/sfblackhoodie.png", alt: "StageFright SF Black Hoodie" },
   ];
 
-  // Add clones for seamless looping
-  const carouselItems: CarouselItem[] = [
-    originalItems[originalItems.length - 1], // Clone last item at the start
-    ...originalItems,
-    originalItems[0], // Clone first item at the end
-  ];
-
+  // Start autoplay
   const startAutoplay = () => {
     if (!isPaused) {
       autoplayRef.current = setInterval(() => {
-        handleNext();
+        setCurrentIndex((prevIndex) =>
+          prevIndex < carouselItems.length - 1 ? prevIndex + 1 : 0
+        );
       }, 3000); // Change slides every 3 seconds
     }
   };
 
+  // Stop autoplay
   const stopAutoplay = () => {
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
@@ -49,38 +46,38 @@ const Carousel: React.FC = () => {
     }
   };
 
-  const handleNext = () => {
-    if (isAnimating) return; // Prevent multiple clicks
-    setIsAnimating(true);
-    setCurrentIndex((prev) => prev + 1);
+  // Handle manual pause and resume after delay
+  const handleManualPause = () => {
+    stopAutoplay(); // Stop autoplay immediately
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current); // Clear any existing timer
+
+    // Resume autoplay after 5 seconds
+    pauseTimerRef.current = setTimeout(() => {
+      startAutoplay();
+    }, 5000); // Delay for 5 seconds
   };
 
+  // Handle navigation buttons
   const handlePrev = () => {
-    if (isAnimating) return; // Prevent multiple clicks
-    setIsAnimating(true);
-    setCurrentIndex((prev) => prev - 1);
+    handleManualPause(); // Temporarily pause autoplay
+    setCurrentIndex((prev) => (prev > 0 ? prev - 1 : carouselItems.length - 1));
   };
 
+  const handleNext = () => {
+    handleManualPause(); // Temporarily pause autoplay
+    setCurrentIndex((prev) => (prev < carouselItems.length - 1 ? prev + 1 : 0));
+  };
+
+  // Pause autoplay on hover and resume when leaving
+  const handleMouseEnter = () => setIsPaused(true);
+  const handleMouseLeave = () => setIsPaused(false);
+
+  // Manage autoplay lifecycle
   useEffect(() => {
     if (!isPaused) startAutoplay();
 
     return () => stopAutoplay(); // Cleanup autoplay on unmount or pause
   }, [isPaused]);
-
-  useEffect(() => {
-    if (isAnimating) {
-      const timer = setTimeout(() => {
-        // Seamlessly loop back to the real first/last item without animation
-        setIsAnimating(false);
-        if (currentIndex === 0) {
-          setCurrentIndex(carouselItems.length - 2); // Jump to last real item
-        } else if (currentIndex === carouselItems.length - 1) {
-          setCurrentIndex(1); // Jump to first real item
-        }
-      }, 500); // Transition duration in milliseconds
-      return () => clearTimeout(timer);
-    }
-  }, [currentIndex, isAnimating]);
 
   return (
     <div className="flex flex-col items-center mt-4">
@@ -99,14 +96,13 @@ const Carousel: React.FC = () => {
         {/* Carousel Items */}
         <div
           className="overflow-hidden w-[300px]"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <div
             className="flex transition-transform duration-500"
             style={{
               transform: `translateX(-${currentIndex * 300}px)`,
-              transition: isAnimating ? "transform 0.5s ease-in-out" : "none",
             }}
           >
             {carouselItems.map((item, index) => (
