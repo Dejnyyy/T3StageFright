@@ -106,26 +106,7 @@ const Home = () => {
 
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    const startAutoplay = () => {
-      autoplayRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) =>
-          prevIndex < carouselItems.length - 1 ? prevIndex + 1 : 0
-        );
-      }, 3000); // Change slides every 3 seconds
-    };
-
-    if (!isPaused) {
-      startAutoplay();
-    }
-
-    return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-      }
-    };
-  }, [isPaused, carouselItems.length]);
-
+  
   if (isLoading) {
     return (
       <div
