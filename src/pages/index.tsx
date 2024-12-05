@@ -126,23 +126,6 @@ const Home = () => {
     };
   }, [isPaused, carouselItems.length]);
 
-  const handlePrev = () => {
-    setIsPaused(true);
-    setCurrentIndex((prev) =>
-      prev > 0 ? prev - 1 : carouselItems.length - 1
-    );
-  };
-
-  const handleNext = () => {
-    setIsPaused(true);
-    setCurrentIndex((prev) =>
-      prev < carouselItems.length - 1 ? prev + 1 : 0
-    );
-  };
-
-  const handleMouseEnter = () => setIsPaused(true);
-  const handleMouseLeave = () => setIsPaused(false); 
-
   if (isLoading) {
     return (
       <div
