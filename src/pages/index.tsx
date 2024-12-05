@@ -24,29 +24,10 @@ interface TourData {
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true); 
   const [isFadingOut, setIsFadingOut] = useState(false); 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isTableVisible, setIsTableVisible] = useState(false); 
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
     null
   );
-  const [isDarkMode, setIsDarkMode] = useState(true); // State for theme toggle
-
-
-  const carouselItems: CarouselItem[] = [
-    { src: "/merchhood.png", alt: "StageFright Hoodie" },
-    { src: "/merchcap.png", alt: "StageFright Cap" },
-    { src: "/merch.png", alt: "StageFright Tee" },
-
-    { src: "/blackhoodie.png", alt: "StageFright Black Hoodie" },
-    { src: "/blackcap.png", alt: "StageFright Black Cap" },
-    { src: "/blacktee.png", alt: "StageFright Black Tee" },
-
-    { src: "/sfblacktee.png", alt: "StageFright SF Black Tee" },
-    { src: "/sftee.png", alt: "StageFright SF Tee" },
-    { src: "/sfblackhoodie.png", alt: "StageFright SF Black Hoodie" },
-  ];
-
   const tourData: TourData[] = [
     {
       date: "November 16-17",
@@ -103,8 +84,6 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
 
   
   if (isLoading) {
