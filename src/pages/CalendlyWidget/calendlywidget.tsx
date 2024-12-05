@@ -1,20 +1,19 @@
 import { useEffect } from "react";
 
 interface CalendlyWidgetProps {
-  url: string; // URL of the Calendly schedule
-  primaryColor?: string; // Optional primary color customization
-  height?: string; // Optional height customization
-  minWidth?: string; // Optional minimum width customization
+  url: string;
+  primaryColor?: string; 
+  height?: string; 
+  minWidth?: string;
 }
 
 const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
   url,
-  primaryColor = "000000", // Default primary color
-  height = "700px", // Default height
-  minWidth = "320px", // Default min-width
+  primaryColor = "000000",
+  height = "700px",
+  minWidth = "320px",
 }) => {
   useEffect(() => {
-    // Dynamically load the Calendly widget script
     const script = document.createElement("script");
     script.src = "https://assets.calendly.com/assets/external/widget.js";
     script.async = true;
@@ -36,3 +35,8 @@ const CalendlyWidget: React.FC<CalendlyWidgetProps> = ({
 };
 
 export default CalendlyWidget;
+
+
+
+
+

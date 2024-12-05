@@ -9,11 +9,6 @@ import CalendlyWidget from "./CalendlyWidget";
 import ContactForm from "./ContactForm";
 import Carousel from "./Carousel";
 
-interface CarouselItem {
-  src: string;
-  alt: string;
-}
-
 interface TourData {
   date: string;
   city: string;

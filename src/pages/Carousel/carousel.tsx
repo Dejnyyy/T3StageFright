@@ -2,19 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Define the type for carousel items
 interface CarouselItem {
   src: string;
   alt: string;
 }
 
 const Carousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0); // Start with the first item
-  const [isPaused, setIsPaused] = useState(false); // Pause autoplay on hover or interaction
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
   const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Array of items to display in the carousel
   const carouselItems: CarouselItem[] = [
     { src: "/merchhood.png", alt: "StageFright Hoodie" },
     { src: "/merchcap.png", alt: "StageFright Cap" },
@@ -27,18 +25,16 @@ const Carousel: React.FC = () => {
     { src: "/sfblackhoodie.png", alt: "StageFright SF Black Hoodie" },
   ];
 
-  // Start autoplay
   const startAutoplay = () => {
     if (!isPaused) {
       autoplayRef.current = setInterval(() => {
         setCurrentIndex((prevIndex) =>
           prevIndex < carouselItems.length - 1 ? prevIndex + 1 : 0
         );
-      }, 3000); // Change slides every 3 seconds
+      }, 3000); 
     }
   };
 
-  // Stop autoplay
   const stopAutoplay = () => {
     if (autoplayRef.current) {
       clearInterval(autoplayRef.current);
@@ -46,29 +42,26 @@ const Carousel: React.FC = () => {
     }
   };
 
-  // Handle manual pause and resume after delay
   const handleManualPause = () => {
-    stopAutoplay(); // Stop autoplay immediately
-    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current); // Clear any existing timer
+    stopAutoplay(); 
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
 
-    // Resume autoplay after 5 seconds
     pauseTimerRef.current = setTimeout(() => {
       startAutoplay();
-    }, 5000); // Delay for 5 seconds
+    }, 3000); 
   };
 
   // Handle navigation buttons
   const handlePrev = () => {
-    handleManualPause(); // Temporarily pause autoplay
+    handleManualPause(); 
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : carouselItems.length - 1));
   };
 
   const handleNext = () => {
-    handleManualPause(); // Temporarily pause autoplay
+    handleManualPause(); 
     setCurrentIndex((prev) => (prev < carouselItems.length - 1 ? prev + 1 : 0));
   };
 
-  // Pause autoplay on hover and resume when leaving
   const handleMouseEnter = () => setIsPaused(true);
   const handleMouseLeave = () => setIsPaused(false);
 

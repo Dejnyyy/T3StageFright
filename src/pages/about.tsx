@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Loading from "./Loading/loading"; // Import the Loading component
+import Loading from "./Loading/loading";
 import styles from "./Loading/loading.module.css";
 
 const About = () => {

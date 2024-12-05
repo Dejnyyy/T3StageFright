@@ -85,10 +85,10 @@ const Checkout = () => {
         purchase_units: [
             {
                 amount: {
-                    currency_code: "USD", // Specify the currency
-                    value: price as string, // Ensure price is passed as a string
+                    currency_code: "USD", 
+                    value: price as string,
                 },
-                description: product as string, // Add product description
+                description: product as string,
             },
         ],
         intent: "CAPTURE"
@@ -97,7 +97,7 @@ const Checkout = () => {
   onApprove={async (data, actions) => {
     if (actions.order) {
       const order = await actions.order.capture(); // Capture the payment
-      handleApprove(order.id ?? "unknown order id"); // Handle approved order with type assertion
+      handleApprove(order.id ?? "unknown order id");
     }
   }}
   onError={handleError}
