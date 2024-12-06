@@ -203,21 +203,11 @@ const Home = () => {
         </section>
 
         {/* About Section */}
-         
-         
-         {/* Hero Section */}
-         <section className="text-center py-16 border-b border-gray-700">
-           <h1 className="text-6xl -mt-8 mb-8 merch-text font-bold tracking-wide uppercase bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
-             About Us
-           </h1>
-           {/* Rotating Logo */}
-          
-           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
-         </section>
  
-        <section className="py-16 px-8 border-b border-gray-700">
+        <section className="py-16 px-8 border-b border-gray-700 border-t mt-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-6xl merch-text font-bold mb-8">Our Story</h2>
+           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
             <p className="text-lg text-gray-300 leading-relaxed">
               Stage Fright started with four friends and a dream: to create music
               that moves people. From our garages to packed arenas, we&apos;ve stayed
