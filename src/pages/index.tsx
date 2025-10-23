@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
@@ -17,11 +17,11 @@ interface TourData {
 }
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true); 
-  const [isFadingOut, setIsFadingOut] = useState(false); 
-  const [isTableVisible, setIsTableVisible] = useState(false); 
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [isTableVisible, setIsTableVisible] = useState(false);
   const [currentAudio, setCurrentAudio] = useState<HTMLAudioElement | null>(
-    null
+    null,
   );
   const tourData: TourData[] = [
     {
@@ -80,13 +80,12 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  
   if (isLoading) {
     return (
       <div
         className={`${styles["fade-out"]} ${
           isFadingOut ? styles["fade-out-active"] : ""
-        } text-center fade-in`}
+        } fade-in text-center`}
       >
         <Loading />
       </div>
@@ -98,32 +97,36 @@ const Home = () => {
       <Head>
         <title>Stage Fright</title>
       </Head>
-      
+
       <div className="bg-black text-white">
         {/* Marquee */}
         <Link href="/tour">
-          <div className="fixed top-0 w-full z-40 bg-black">
-            <Marquee gradient={false} speed={100} className="text-white font-bold">
+          <div className="fixed top-0 z-40 w-full bg-black">
+            <Marquee
+              gradient={false}
+              speed={100}
+              className="font-bold text-white"
+            >
               !!! New Tour - Check out the schedule !!!
             </Marquee>
           </div>
         </Link>
 
         {/* Rotating Logo */}
-        <section className="w-full mx-auto pt-12 text-center">
+        <section className="mx-auto w-full pt-12 text-center">
           <div className="perspective">
             <Image
               width={300}
               height={300}
               src="/StageFrightNobg.png"
               alt="Stage Fright Logo"
-              className="rotating-side-logo mx-auto sm:w-1/2 w-3/4"
+              className="rotating-side-logo mx-auto w-3/4 sm:w-1/2"
             />
           </div>
         </section>
 
         {/* Navigation Links */}
-        <nav className="text-center text-xl mt-4">
+        <nav className="mt-4 text-center text-xl">
           <Link href="/about" className="mx-4 hover:underline">
             About
           </Link>
@@ -134,43 +137,46 @@ const Home = () => {
             Merch
           </Link>
         </nav>
-        <div className="text-center text-xl mt-4">
-  <button
-    className="mx-4 hover:underline cursor-pointer text-white bg-transparent border-none"
-    onClick={() => {
-      document.getElementById("contactus")?.scrollIntoView({ behavior: "smooth" });
-    }}
-  >
-    Contact Us
-  </button>
-</div>
+        <div className="mt-4 text-center text-xl">
+          <button
+            className="mx-4 cursor-pointer border-none bg-transparent text-white hover:underline"
+            onClick={() => {
+              document
+                .getElementById("contactus")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Contact Us
+          </button>
+        </div>
 
         {/* Carousel Section */}
         <Carousel />
 
-
         {/* Tour Table */}
         <section className="mt-12">
-          <h1 className="text-6xl font-bold text-center merch-text">Tour Tickets</h1>
+          <h1 className="merch-text text-center text-6xl font-bold">
+            Tour Tickets
+          </h1>
           <div
             id="tour-table"
-            className={`transition-opacity duration-700 md:w-3/4 mx-auto ${
+            className={`mx-auto transition-opacity duration-700 md:w-3/4 ${
               isTableVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            <table className="min-w-full table-auto text-white bg-black border-separate border-spacing-y-2 mt-6">
+            <table className="mt-6 min-w-full table-auto border-separate border-spacing-y-2 bg-black text-white">
               <thead>
                 <tr>
-                  <th className="px-4 py-2 text-left uppercase text-sm md:text-base">
+                  <th className="px-4 py-2 text-left text-sm uppercase md:text-base">
                     Date
                   </th>
-                  <th className="px-4 py-2 text-left uppercase text-sm md:text-base">
+                  <th className="px-4 py-2 text-left text-sm uppercase md:text-base">
                     City
                   </th>
-                  <th className="px-4 py-2 text-left uppercase text-sm md:text-base">
+                  <th className="px-4 py-2 text-left text-sm uppercase md:text-base">
                     Venue
                   </th>
-                  <th className="px-4 py-2 text-left uppercase text-sm md:text-base">
+                  <th className="px-4 py-2 text-left text-sm uppercase md:text-base">
                     Tickets
                   </th>
                 </tr>
@@ -179,18 +185,18 @@ const Home = () => {
                 {tourData.map((tour: TourData, index: number) => (
                   <tr
                     key={index}
-                    className="hover:bg-gray-800 transition-colors"
+                    className="transition-colors hover:bg-gray-800"
                   >
-                    <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base">
+                    <td className="border-t border-gray-700 px-4 py-2 text-sm md:text-base">
                       {tour.date}
                     </td>
-                    <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base">
+                    <td className="border-t border-gray-700 px-4 py-2 text-sm md:text-base">
                       {tour.city}
                     </td>
-                    <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base">
+                    <td className="border-t border-gray-700 px-4 py-2 text-sm md:text-base">
                       {tour.venue}
                     </td>
-                    <td className="px-4 py-2 border-t border-gray-700 text-sm md:text-base text-blue-500">
+                    <td className="border-t border-gray-700 px-4 py-2 text-sm text-blue-500 md:text-base">
                       <Link href={tour.tickets} className="underline">
                         Buy Ticket
                       </Link>
@@ -203,34 +209,37 @@ const Home = () => {
         </section>
 
         {/* About Section */}
- 
-        <section className="py-16 px-8 border-b border-gray-700 border-t mt-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-6xl merch-text font-bold mb-8">Our Story</h2>
-           <p className="text-center italic text-gray-400 hover:text-white">&quot;Catch the vibe, live the energy!&quot;</p>
-            <p className="text-lg text-gray-300 leading-relaxed">
-              Stage Fright started with four friends and a dream: to create music
-              that moves people. From our garages to packed arenas, we&apos;ve stayed
-              true to our passion for delivering electrifying rock performances.
-              Every song we write and every show we perform is a celebration of
-              energy, emotion, and connection with our fans.
+
+        <section className="mt-4 border-b border-t border-gray-700 px-8 py-16">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="merch-text mb-8 text-6xl font-bold">Our Story</h2>
+            <p className="text-center italic text-gray-400 hover:text-white">
+              &quot;Catch the vibe, live the energy!&quot;
             </p>
-            <p className="text-lg text-gray-300 mt-6 leading-relaxed">
-              With catchy vibe, unforgettable lyrics, and a stage presence
-              that ignites crowds, Stage Fright is here to remind you why rock
-              will always be alive.
+            <p className="text-lg leading-relaxed text-gray-300">
+              Stage Fright started with four friends and a dream: to create
+              music that moves people. From our garages to packed arenas,
+              we&apos;ve stayed true to our passion for delivering electrifying
+              rock performances. Every song we write and every show we perform
+              is a celebration of energy, emotion, and connection with our fans.
+            </p>
+            <p className="mt-6 text-lg leading-relaxed text-gray-300">
+              With catchy vibe, unforgettable lyrics, and a stage presence that
+              ignites crowds, Stage Fright is here to remind you why rock will
+              always be alive.
             </p>
           </div>
         </section>
-        <section className="py-16 text-center border-b border-gray-700">
-          <h2 className="text-6xl merch-text font-bold">Our Songs</h2>
-          <p className="text-gray-300 mt-4 text-lg italic">
-            Experience the sound of Stage Fright - electrifying, raw, and unforgettable!
+        <section className="border-b border-gray-700 py-16 text-center">
+          <h2 className="merch-text text-6xl font-bold">Our Songs</h2>
+          <p className="mt-4 text-lg italic text-gray-300">
+            Experience the sound of Stage Fright - electrifying, raw, and
+            unforgettable!
           </p>
 
-          <div className="flex flex-wrap justify-center mt-8 gap-8">
+          <div className="mt-8 flex flex-wrap justify-center gap-8">
             {/* Song 1 */}
-            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+            <div className="w-64 rounded-lg border border-gray-700 bg-black shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-white">
               <Image
                 src="/vibesunleashed.webp"
                 alt="Song 1 Album Cover"
@@ -239,13 +248,15 @@ const Home = () => {
                 className="rounded-t-lg"
               />
               <div className="p-4">
-                <h3 className="text-2xl font-bold text-white">&quot;Rock Anthem&quot;</h3>
-                <p className="text-gray-400 italic mt-2">
+                <h3 className="text-2xl font-bold text-white">
+                  &quot;Rock Anthem&quot;
+                </h3>
+                <p className="mt-2 italic text-gray-400">
                   From the album: Vibes Unleashed
                 </p>
                 <audio
                   controls
-                  className="mt-4 w-full bg-black text-white rounded-full"
+                  className="mt-4 w-full rounded-full bg-black text-white"
                   onPlay={(e) => handlePlay(e.currentTarget)}
                 >
                   <source src="/audio.mp3" type="audio/mpeg" />
@@ -255,7 +266,7 @@ const Home = () => {
             </div>
 
             {/* Song 2 */}
-            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+            <div className="w-64 rounded-lg border border-gray-700 bg-black shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-white">
               <Image
                 src="/heartbeathigh.webp"
                 alt="Song 2 Album Cover"
@@ -264,13 +275,15 @@ const Home = () => {
                 className="rounded-t-lg"
               />
               <div className="p-4">
-                <h3 className="text-2xl font-bold text-white">&quot;Electric Pulse&quot;</h3>
-                <p className="text-gray-400 italic mt-2">
+                <h3 className="text-2xl font-bold text-white">
+                  &quot;Electric Pulse&quot;
+                </h3>
+                <p className="mt-2 italic text-gray-400">
                   From the album: Heartbeat High
                 </p>
                 <audio
                   controls
-                  className="mt-4 w-full bg-black text-white rounded-full"
+                  className="mt-4 w-full rounded-full bg-black text-white"
                   onPlay={(e) => handlePlay(e.currentTarget)}
                 >
                   <source src="/audio2.mp3" type="audio/mpeg" />
@@ -280,7 +293,7 @@ const Home = () => {
             </div>
 
             {/* Song 3 */}
-            <div className="w-64 bg-black border hover:shadow-white duration-300 ease-in-out border-gray-700 rounded-lg shadow-lg hover:scale-105 transition-all">
+            <div className="w-64 rounded-lg border border-gray-700 bg-black shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-white">
               <Image
                 src="/liveenergy.webp"
                 alt="Song 3 Album Cover"
@@ -289,13 +302,15 @@ const Home = () => {
                 className="rounded-t-lg"
               />
               <div className="p-4">
-                <h3 className="text-2xl font-bold text-white">&quot;Stage Rush&quot;</h3>
-                <p className="text-gray-400 italic mt-2">
+                <h3 className="text-2xl font-bold text-white">
+                  &quot;Stage Rush&quot;
+                </h3>
+                <p className="mt-2 italic text-gray-400">
                   From the album: Live Energy SF
                 </p>
                 <audio
                   controls
-                  className="mt-4 w-full bg-black text-white rounded-full"
+                  className="mt-4 w-full rounded-full bg-black text-white"
                   onPlay={(e) => handlePlay(e.currentTarget)}
                 >
                   <source src="/audio3.mp3" type="audio/mpeg" />
@@ -306,19 +321,22 @@ const Home = () => {
           </div>
         </section>
 
-        <h2 className="text-6xl mt-8 font-bold merch-text text-center">
+        <h2 className="merch-text mt-8 text-center text-6xl font-bold">
           Book Us
         </h2>
-         {/* Calendly Embed Section */}
+        {/* Calendly Embed Section */}
         <CalendlyWidget url="https://calendly.com/stagefright" />
-        <div className="w-full mx-auto border-t border-gray-700"></div>
+        <div className="mx-auto w-full border-t border-gray-700"></div>
 
-        <h2 className="text-6xl font-bold merch-text mt-12 text-center" id="contactus">
+        <h2
+          className="merch-text mt-12 text-center text-6xl font-bold"
+          id="contactus"
+        >
           Contact Us
         </h2>
-        
-          {/* Contact Form Section */}
-          <ContactForm />
+
+        {/* Contact Form Section */}
+        <ContactForm />
         {/* Footer */}
         <footer className="bg-black py-6 text-center">
           <p className="text-gray-400">&copy; 2024 Stage Fright</p>
